@@ -1,0 +1,27 @@
+﻿# General Dependencies
+node_modules/
+vendor/
+
+# Environment Variables
+.env
+*.env
+
+# Build & Cache
+dist/
+bootstrap/cache/
+storage/logs/
+storage/framework/
+storage/app/public/
+
+# Logs & Binaries
+*.log
+*.exe
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Personal Files & Scripts
+test_image.txt
+fix.txt
+cleanup.mjs

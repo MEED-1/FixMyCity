@@ -1,0 +1,296 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "dashboard": "Tableau de bord",
+    "login": "Connexion",
+    "signup": "S'inscrire",
+    "logout": "Déconnexion",
+    "browseIssues": "Parcourir les problèmes",
+    "communityHelp": "Entraide",
+    "about": "À propos",
+    "signedInAs": "Connecté en tant que"
+  },
+  "auth": {
+    "or": "Ou",
+    "createAccount": "créer un nouveau compte",
+    "alreadyAccount": "Vous avez déjà un compte ?",
+    "signIn": "Se connecter",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "fullName": "Nom complet",
+    "phone": "Numéro de téléphone",
+    "signingIn": "Connexion...",
+    "creatingAccount": "Création de compte...",
+    "loginFailed": "Échec de la connexion",
+    "registrationFailed": "Échec de l'inscription",
+    "joinCommunity": "Rejoignez la communauté",
+    "feature1": "Signalez des problèmes en quelques secondes",
+    "feature2": "Connectez-vous avec vos voisins",
+    "feature3": "Gagnez des récompenses pour votre impact"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "myIssues": "Mes signalements",
+    "reportIssue": "Signaler un problème",
+    "myHelp": "Mes demandes d'aide",
+    "myHelpRequests": "Mes demandes d'aide",
+    "myDonations": "Mes dons",
+    "myBoosts": "Mes boosts",
+    "notifications": "Notifications",
+    "profile": "Profil",
+    "browseRequests": "Parcourir les demandes",
+    "communityHelp": "Entraide",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "reportIssue": {
+    "title": "Signaler un problème",
+    "subtitle": "Aidez-nous à améliorer la ville en signalant les problèmes de votre quartier.",
+    "form": {
+      "title": "Titre du problème",
+      "titlePlaceholder": "ex: Nid de poule sur la rue principale",
+      "description": "Description",
+      "descriptionPlaceholder": "Décrivez le problème en détail...",
+      "category": "Catégorie",
+      "priority": "Niveau de priorité",
+      "location": "Emplacement (Cliquez sur la carte)",
+      "photos": "Photos",
+      "uploadText": "Télécharger des fichiers",
+      "dragDrop": "ou glisser-déposer",
+      "cancel": "Annuler",
+      "submit": "Soumettre",
+      "submitting": "Envoi..."
+    },
+    "categories": {
+      "infrastructure": "Infrastructure",
+      "sanitation": "Assainissement",
+      "lighting": "Éclairage",
+      "public_safety": "Sécurité publique",
+      "parks": "Parcs",
+      "water": "Eau",
+      "transport": "Transport",
+      "other": "Autre"
+    },
+    "priorities": {
+      "low": "Faible",
+      "medium": "Moyenne",
+      "high": "Élevée",
+      "critical": "Critique"
+    }
+  },
+  "dashboard": {
+    "welcome": "Bon retour",
+    "subtext": "Voici ce qui se passe dans votre ville aujourd'hui.",
+    "myReports": "Mes signalements",
+    "allReports": "Tous les signalements",
+    "listView": "Vue liste",
+    "mapView": "Vue carte",
+    "stats": {
+      "issuesReported": "Problèmes signalés",
+      "activeRequests": "Demandes actives",
+      "totalDonated": "Total des dons",
+      "activeBoosts": "Boosts actifs"
+    },
+    "quickActions": {
+      "title": "Actions rapides",
+      "reportIssue": "Signaler un problème",
+      "createRequest": "Créer une demande",
+      "viewMap": "Voir la carte",
+      "browseRequests": "Parcourir les demandes"
+    },
+    "recentActivity": {
+      "title": "Activité récente",
+      "viewAll": "Voir tout"
+    },
+    "nearbyIssues": {
+      "title": "Problèmes à proximité",
+      "fullMap": "Carte complète"
+    },
+    "status": {
+      "all": "Tout",
+      "open": "Ouvert",
+      "reported": "Signalé",
+      "in_progress": "En cours",
+      "resolved": "Résolu"
+    }
+  },
+  "issues": {
+    "browseTitle": "Parcourir les problèmes",
+    "browseSubtitle": "Découvrez ce qui se passe dans votre ville",
+    "noIssues": "Aucun problème trouvé pour ce filtre."
+  },
+  "about": {
+    "title": "À propos de FixMyCity",
+    "subtitle": "Donner le pouvoir aux citoyens",
+    "description": "Nous comblons le fossé entre les citoyens et l'administration locale pour construire de meilleures villes ensemble.",
+    "missionTitle": "Notre Mission",
+    "missionText": "Fournir une plateforme transparente, efficace et collaborative pour signaler et résoudre les problèmes urbains. Nous croyons au pouvoir de l'engagement communautaire.",
+    "stat1": "Villes",
+    "stat2": "Problèmes Résolus"
+  },
+  "landing": {
+    "heroTitle": "Améliorons la ville, ensemble",
+    "heroSubtitle": "Signalez des problèmes, suivez les progrès et améliorez votre quartier avec FixMyCity.",
+    "getStarted": "Commencer",
+    "features": "Fonctionnalités"
+  },
+  "donation": {
+    "title": "Faire un don à \"{{title}}\"",
+    "subtitle": "Votre contribution fait la différence. 100% va au bénéficiaire.",
+    "amountLabel": "Montant (DH)",
+    "messageLabel": "Message (Optionnel)",
+    "messagePlaceholder": "Ajouter un mot de soutien...",
+    "anonymousLabel": "Faire un don anonyme",
+    "submitBtn": "Donner {{amount}} DH",
+    "processing": "Traitement...",
+    "cancel": "Annuler",
+    "minAmountError": "Le don minimum est de 10 DH",
+    "error": "Échec de l'initialisation du don"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitle": "Restez informé des dernières activités.",
+    "markAllRead": "Tout marquer comme lu",
+    "markAsRead": "Marquer comme lu",
+    "delete": "Supprimer",
+    "emptyState": "Aucune notification",
+    "emptyStateSub": "Vous êtes à jour !",
+    "success": "Toutes les notifications marquées comme lues",
+    "removed": "Notification supprimée"
+  },
+  "community": {
+    "myRequests": "Mes demandes d'aide",
+    "requestHelp": "Demander de l'aide",
+    "noRequests": "Vous n'avez pas encore demandé d'aide.",
+    "noRequestsSub": "Besoin d'un coup de main ? Demandez à la communauté !",
+    "backToFeed": "Retour au flux communautaire",
+    "details": "Détails",
+    "postedBy": "Publié par {{name}} le {{date}}",
+    "description": "Description",
+    "progress": "Progrès de la collecte",
+    "raised": "{{current}} collectés",
+    "goal": "Objectif : {{target}}",
+    "location": "Emplacement",
+    "donateBtn": "Faire un don maintenant 💖",
+    "volunteerBtn": "Se porter volontaire",
+    "volunteerToast": "Messagerie des bénévoles bientôt disponible !",
+    "notFound": "Demande non trouvée"
+  },
+  "landingPage": {
+    "hero": {
+      "titleLine1": "Rendez votre ville",
+      "titleLine2": "Meilleure, Ensemble",
+      "description": "Signalez les problèmes urbains, soutenez les causes communautaires et suivez les changements réels dans votre quartier. Rejoignez le mouvement pour une ville plus propre et plus sûre.",
+      "ctaReport": "Signaler un problème",
+      "ctaMap": "Voir la carte",
+      "card1": {
+        "title": "Nettoyage du parc",
+        "subtitle": "Prévu pour aujourd'hui",
+        "volunteers": "12 Bénévoles",
+        "distance": "à 2km"
+      },
+      "card2": {
+        "title": "Danger routier",
+        "status": "En cours"
+      }
+    },
+    "features": {
+      "title": "Que pouvez-vous faire ?",
+      "subtitle": "Tout ce dont vous avez besoin pour être un citoyen actif.",
+      "card1": {
+        "tag": "Gratuit",
+        "title": "Signaler des problèmes",
+        "description": "Vous avez repéré un nid-de-poule, un lampadaire cassé ou un dépôt sauvage ? Signalez-le en quelques secondes avec photo et localisation."
+      },
+      "card2": {
+        "tag": "Vérifié",
+        "title": "Soutenir vos voisins",
+        "description": "Aidez les familles dans le besoin en faisant un don aux demandes communautaires vérifiées. Chaque contribution fait la différence."
+      },
+      "card3": {
+        "tag": "Dès 5 DH",
+        "title": "Booster la visibilité",
+        "description": "Faites ressortir les problèmes urgents. Boostez les signalements pour obtenir une attention municipale plus rapide."
+      }
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "step1": "Créer un compte",
+      "step2": "Signaler ou Demander",
+      "step3": "La municipalité répond",
+      "step4": "Problème résolu"
+    },
+    "stats": {
+      "issues": "Problèmes signalés",
+      "resolution": "Taux de résolution",
+      "funded": "Demandes financées",
+      "partners": "Partenaires municipaux"
+    },
+    "footer": {
+      "about": "À propos",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "contact": "Contact",
+      "rights": "© 2024 FixMyCity. Tous droits réservés."
+    }
+  },
+  "header": {
+    "issuesList": "Liste des problèmes",
+    "communityHelp": "Entraide communautaire",
+    "aboutUs": "À propos"
+  },
+  "admin": {
+    "dashboard": "Tableau de bord admin",
+    "allIssues": "Tous les problèmes",
+    "transactions": "Transactions",
+    "users": "Utilisateurs"
+  },
+  "issueDetails": {
+    "back": "Retour",
+    "description": "Description",
+    "deleteIssue": "Supprimer le problème",
+    "boost": "Booster",
+    "anonymous": "Anonyme",
+    "comments": "Commentaires",
+    "noComments": "Aucun commentaire. Soyez le premier à discuter de ce problème.",
+    "addComment": "Ajouter un commentaire...",
+    "posting": "Publication...",
+    "postComment": "Publier",
+    "loginToUpvote": "Veuillez vous connecter pour voter.",
+    "loginToBoost": "Veuillez vous connecter pour booster.",
+    "upvoted": "Vote enregistré !",
+    "failedUpvote": "Échec du vote",
+    "failedLoad": "Échec du chargement des détails",
+    "failedDelete": "Échec de la suppression",
+    "failedComment": "Échec de la publication du commentaire",
+    "commentAdded": "Commentaire ajouté !",
+    "postedOn": "Publié le",
+    "user": "Utilisateur",
+    "selectPhotosToResolve": "Veuillez sélectionner au moins une photo pour marquer comme résolu.",
+    "markedResolved": "Problème marqué comme résolu !",
+    "failedToResolve": "Échec du marquage comme résolu.",
+    "resolvedPictures": "Photos de résolution",
+    "markResolved": "Marquer comme résolu",
+    "uploadProof": "Téléchargez des photos preuvant la résolution.",
+    "resolveIssueBtn": "Résoudre & Télécharger"
+  },
+  "issueCard": {
+    "upvotes": "Votes",
+    "boost": "Booster",
+    "upvote": "Voter",
+    "delete": "Supprimer",
+    "noImage": "Pas d'image",
+    "loginRequired": "Veuillez vous connecter."
+  },
+  "translate": {
+    "translate": "Traduire",
+    "showOriginal": "Texte original",
+    "translating": "Traduction...",
+    "failed": "Échec de la traduction"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "noResults": "Aucun résultat"
+  }
+}

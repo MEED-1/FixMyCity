@@ -1,0 +1,296 @@
+{
+  "navbar": {
+    "home": "الرئيسية",
+    "dashboard": "لوحة القيادة",
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "browseIssues": "تصفح المشاكل",
+    "communityHelp": "المساعدة المجتمعية",
+    "about": "حول",
+    "signedInAs": "مسجل الدخول كـ"
+  },
+  "sidebar": {
+    "dashboard": "لوحة القيادة",
+    "myIssues": "بلاغاتي",
+    "reportIssue": "الإبلاغ عن مشكلة",
+    "myHelp": "طلبات المساعدة",
+    "myHelpRequests": "طلبات المساعدة",
+    "myDonations": "تبرعاتي",
+    "myBoosts": "تعزيزاتي",
+    "notifications": "الإشعارات",
+    "profile": "الملف الشخصي",
+    "browseRequests": "تصفح الطلبات",
+    "communityHelp": "المساعدة المجتمعية",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج"
+  },
+  "reportIssue": {
+    "title": "الإبلاغ عن مشكلة",
+    "subtitle": "ساعدنا في تحسين المدينة من خلال الإبلاغ عن المشاكل في حيك.",
+    "form": {
+      "title": "عنوان المشكلة",
+      "titlePlaceholder": "مثال: حفرة في الشارع الرئيسي",
+      "description": "الوصف",
+      "descriptionPlaceholder": "صف المشكلة بالتفصيل...",
+      "category": "الفئة",
+      "priority": "مستوى الأولوية",
+      "location": "الموقع (اضغط على الخريطة)",
+      "photos": "الصور",
+      "uploadText": "تحميل الملفات",
+      "dragDrop": "أو السحب والإفلات",
+      "cancel": "إلغاء",
+      "submit": "إرسال البلاغ",
+      "submitting": "جاري الإرسال..."
+    },
+    "categories": {
+      "infrastructure": "بنية تحتية",
+      "sanitation": "صرف صحي",
+      "lighting": "إنارة",
+      "public_safety": "أمن عام",
+      "parks": "حدائق",
+      "water": "مياه",
+      "transport": "نقل",
+      "other": "آخر"
+    },
+    "priorities": {
+      "low": "منخفضة",
+      "medium": "متوسطة",
+      "high": "عالية",
+      "critical": "حرجة"
+    }
+  },
+  "dashboard": {
+    "welcome": "مرحباً بعودتك",
+    "subtext": "إليك ما يحدث في مدينتك اليوم.",
+    "myReports": "بلاغاتي",
+    "allReports": "كل البلاغات",
+    "listView": "عرض القائمة",
+    "mapView": "عرض الخريطة",
+    "stats": {
+      "issuesReported": "البلاغات المقدمة",
+      "activeRequests": "الطلبات النشطة",
+      "totalDonated": "إجمالي التبرعات",
+      "activeBoosts": "الدعم النشط"
+    },
+    "quickActions": {
+      "title": "إجراءات سريعة",
+      "reportIssue": "الإبلاغ عن مشكلة جديدة",
+      "createRequest": "إنشاء طلب",
+      "viewMap": "عرض الخريطة",
+      "browseRequests": "تصفح الطلبات"
+    },
+    "recentActivity": {
+      "title": "النشاط الأخير",
+      "viewAll": "عرض الكل"
+    },
+    "nearbyIssues": {
+      "title": "مشاكل بالقرب منك",
+      "fullMap": "الخريطة الكاملة"
+    },
+    "status": {
+      "all": "الكل",
+      "open": "مفتوح",
+      "reported": "تم الإبلاغ",
+      "in_progress": "قيد المعالجة",
+      "resolved": "تم الحل"
+    }
+  },
+  "issues": {
+    "browseTitle": "تصفح المشاكل الحضرية",
+    "browseSubtitle": "اطلع على ما يحدث في مدينتك",
+    "noIssues": "لم يتم العثور على مشاكل تطابق الفلتر."
+  },
+  "about": {
+    "title": "عن FixMyCity",
+    "subtitle": "تمكين المواطنين",
+    "description": "نسد الفجوة بين المواطنين والإدارة المحلية لبناء مدن أفضل معاً.",
+    "missionTitle": "مهمتنا",
+    "missionText": "توفير منصة شفافة وفعالة وتعاونية للإبلاغ عن المشاكل الحضرية وحلها. نحن نؤمن بقوة المشاركة المجتمعية.",
+    "stat1": "مدينة",
+    "stat2": "مشكلة محلة"
+  },
+  "landing": {
+    "heroTitle": "لنجعل مدينتنا أفضل، معاً",
+    "heroSubtitle": "أبلغ عن المشاكل، تابع التقدم، وحسن حيك مع FixMyCity.",
+    "getStarted": "ابدأ الآن",
+    "features": "المميزات"
+  },
+  "donation": {
+    "title": "تبرع لـ \"{{title}}\"",
+    "subtitle": "مساهمتك تحدث فرقاً. 100% تذهب للمستفيد.",
+    "amountLabel": "المبلغ (درهم)",
+    "messageLabel": "رسالة (اختياري)",
+    "messagePlaceholder": "أضف كلمة دعم...",
+    "anonymousLabel": "تبرع كمجهول",
+    "submitBtn": "تبرع بـ {{amount}} درهم",
+    "processing": "جاري المعالجة...",
+    "cancel": "إلغاء",
+    "minAmountError": "الحد الأدنى للتبرع هو 10 درهم",
+    "error": "فشل في بدء التبرع"
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "subtitle": "ابقى على اطلاع بآخر المستجدات.",
+    "markAllRead": "تحديد الكل كمقروء",
+    "markAsRead": "تحديد كمقروء",
+    "delete": "حذف",
+    "emptyState": "لا توجد إشعارات",
+    "emptyStateSub": "أنت مطلع على كل شيء!",
+    "success": "تم تحديد جميع الإشعارات كمقرؤة",
+    "removed": "تم حذف الإشعار"
+  },
+  "community": {
+    "myRequests": "طلبات المساعدة الخاصة بي",
+    "requestHelp": "طلب مساعدة",
+    "noRequests": "لم تقم بطلب المساعدة بعد.",
+    "noRequestsSub": "هل تحتاج يد العون؟ اطلب من المجتمع!",
+    "backToFeed": "العودة إلى مجتمع المساعدة",
+    "details": "التفاصيل",
+    "postedBy": "نشر بواسطة {{name}} في {{date}}",
+    "description": "الوصف",
+    "progress": "تقدم جمع التبرعات",
+    "raised": "{{current}} تم جمعها",
+    "goal": "الهدف: {{target}}",
+    "location": "الموقع",
+    "donateBtn": "تبرع الآن 💖",
+    "volunteerBtn": "تطوع للمساعدة",
+    "volunteerToast": "مراسلة المتطوعين قادمة قريباً!",
+    "notFound": "الطلب غير موجود"
+  },
+  "auth": {
+    "or": "أو",
+    "createAccount": "إنشاء حساب جديد",
+    "alreadyAccount": "لديك حساب بالفعل؟",
+    "signIn": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "fullName": "الاسم الكامل",
+    "phone": "رقم الهاتف",
+    "signingIn": "جاري تسجيل الدخول...",
+    "creatingAccount": "جاري إنشاء الحساب...",
+    "loginFailed": "فشل تسجيل الدخول",
+    "registrationFailed": "فشل التسجيل",
+    "joinCommunity": "انضم للمجتمع",
+    "feature1": "أبلغ عن المشاكل في ثوانٍ",
+    "feature2": "تواصل مع جيرانك",
+    "feature3": "احصل على مكافآت لتأثيرك"
+  },
+  "header": {
+    "issuesList": "قائمة المشاكل",
+    "communityHelp": "المساعدة المجتمعية",
+    "aboutUs": "من نحن"
+  },
+  "admin": {
+    "dashboard": "لوحة تحكم المدير",
+    "allIssues": "جميع المشاكل",
+    "transactions": "المعاملات",
+    "users": "المستخدمون"
+  },
+  "issueDetails": {
+    "back": "رجوع",
+    "description": "الوصف",
+    "deleteIssue": "حذف المشكلة",
+    "boost": "تعزيز",
+    "anonymous": "مجهول",
+    "comments": "التعليقات",
+    "noComments": "لا توجد تعليقات بعد. كن أول من يناقش هذه المشكلة.",
+    "addComment": "أضف تعليقاً...",
+    "posting": "جاري النشر...",
+    "postComment": "نشر التعليق",
+    "loginToUpvote": "يرجى تسجيل الدخول للتصويت.",
+    "loginToBoost": "يرجى تسجيل الدخول للتعزيز.",
+    "upvoted": "تم التصويت!",
+    "failedUpvote": "فشل التصويت",
+    "failedLoad": "فشل تحميل التفاصيل",
+    "failedDelete": "فشل الحذف",
+    "failedComment": "فشل نشر التعليق",
+    "commentAdded": "تمت إضافة التعليق!",
+    "postedOn": "نشر في",
+    "user": "مستخدم",
+    "selectPhotosToResolve": "يرجى تحديد صورة واحدة على الأقل لتحديدها كمحلولة.",
+    "markedResolved": "تم تحديد المشكلة كمحلولة!",
+    "failedToResolve": "فشل التحديد كمحلولة.",
+    "resolvedPictures": "صور الحل",
+    "markResolved": "تحديد كمحلولة",
+    "uploadProof": "قم بتحميل صور تثبت حل المشكلة.",
+    "resolveIssueBtn": "تحديد وحفظ"
+  },
+  "issueCard": {
+    "upvotes": "الأصوات",
+    "boost": "تعزيز",
+    "upvote": "تصويت",
+    "delete": "حذف",
+    "noImage": "بدون صورة",
+    "loginRequired": "يرجى تسجيل الدخول."
+  },
+  "translate": {
+    "translate": "ترجمة",
+    "showOriginal": "النص الأصلي",
+    "translating": "جاري الترجمة...",
+    "failed": "فشلت الترجمة"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "noResults": "لا توجد نتائج"
+  },
+  "landingPage": {
+    "hero": {
+      "titleLine1": "اجعل مدينتك",
+      "titleLine2": "أفضل، معاً",
+      "description": "أبلغ عن المشاكل الحضرية، ادعم القضايا المجتمعية، وتابع التغيير الحقيقي في حيك. انضم للحركة من أجل مدينة أنظف وأكثر أماناً.",
+      "ctaReport": "الإبلاغ عن مشكلة",
+      "ctaMap": "عرض الخريطة",
+      "card1": {
+        "title": "تنظيف الحديقة",
+        "subtitle": "مقرر لليوم",
+        "volunteers": "12 متطوعاً",
+        "distance": "على بعد 2 كم"
+      },
+      "card2": {
+        "title": "خطر على الطريق",
+        "status": "قيد المعالجة"
+      }
+    },
+    "features": {
+      "title": "ماذا يمكنك أن تفعل؟",
+      "subtitle": "كل ما تحتاجه لتكون مواطناً فاعلاً.",
+      "card1": {
+        "tag": "مجاني",
+        "title": "أبلغ عن المشاكل الحضرية",
+        "description": "لاحظت حفرة، أو عمود إنارة مكسور، أو مكب نفايات غير قانوني؟ أبلغ عنه في ثوانٍ مع صورة وموقع."
+      },
+      "card2": {
+        "tag": "موثق",
+        "title": "ادعم جيرانك",
+        "description": "ساعد العائلات المحتاجة بالتبرع للطلبات المجتمعية الموثقة. كل مساهمة تحدث فرقاً."
+      },
+      "card3": {
+        "tag": "من 5 درهم",
+        "title": "عزز الظهور",
+        "description": "اجعل المشاكل العاجلة بارزة. عزز البلاغات للحصول على اهتمام بلدي أسرع."
+      }
+    },
+    "howItWorks": {
+      "title": "كيف يعمل",
+      "step1": "إنشاء حساب",
+      "step2": "أبلغ أو اطلب",
+      "step3": "البلدية تستجيب",
+      "step4": "تم حل المشكلة"
+    },
+    "stats": {
+      "issues": "مشاكل مبلغ عنها",
+      "resolution": "معدل الحل",
+      "funded": "طلبات ممولة",
+      "partners": "شركاء بلديون"
+    },
+    "footer": {
+      "about": "حول",
+      "privacy": "الخصوصية",
+      "terms": "الشروط",
+      "contact": "اتصل بنا",
+      "rights": "© 2024 FixMyCity. جميع الحقوق محفوظة."
+    }
+  }
+}

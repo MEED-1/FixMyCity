@@ -1,0 +1,220 @@
+name: 'Community Help'
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/community-help
+    metadata:
+      custom: []
+      groupName: 'Community Help'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get list of community help requests with filtering.'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"current_page":1,"data":[{"user_id":"699c73777972d953840d28f2","title":"assssssss","description":"ssssssssssssssssssss","category":"volunteering","status":"active","target_amount":0,"current_amount":0,"donations_count":0,"location":{"type":"Point","coordinates":[-7.602690491706815,33.57969024432112]},"photos":["https:\/\/res.cloudinary.com\/dvqlseg7d\/image\/upload\/v1771936159\/fixmycity\/help_requests\/lsi6zvqq8th8aiyfpddk.png"],"verification_status":"pending","updated_at":"2026-02-24T12:29:20.268000Z","created_at":"2026-02-24T12:29:20.268000Z","id":"699d99a0da225353600bb913","user":{"email":"citizen@fixmycity.com","name":"John Citizen","role":"citizen","updated_at":"2026-02-24T13:39:43.637000Z","created_at":"2026-02-23T15:34:15.975000Z","avatar_url":null,"id":"699c73777972d953840d28f2"}}],"first_page_url":"http:\/\/localhost:8000\/api\/community-help?page=1","from":1,"last_page":1,"last_page_url":"http:\/\/localhost:8000\/api\/community-help?page=1","links":[{"url":null,"label":"&laquo; Previous","page":null,"active":false},{"url":"http:\/\/localhost:8000\/api\/community-help?page=1","label":"1","page":1,"active":true},{"url":null,"label":"Next &raquo;","page":null,"active":false}],"next_page_url":null,"path":"http:\/\/localhost:8000\/api\/community-help","per_page":20,"prev_page_url":null,"to":1,"total":1}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/community-help/{id}'
+    metadata:
+      custom: []
+      groupName: 'Community Help'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get details of a specific community help request.'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the community help.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 404
+        content: '{"error":"Request not found"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/community-help
+    metadata:
+      custom: []
+      groupName: 'Community Help'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new community help request.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        custom: []
+        name: title
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: vmqeopfuudtdsufvyvddq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      description:
+        custom: []
+        name: description
+        description: ''
+        required: true
+        example: 'Dolores dolorum amet iste laborum eius est dolor.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      category:
+        custom: []
+        name: category
+        description: ''
+        required: true
+        example: volunteering
+        type: string
+        enumValues:
+          - volunteering
+          - donation
+          - other
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      latitude:
+        custom: []
+        name: latitude
+        description: ''
+        required: true
+        example: 11613.31890586
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      longitude:
+        custom: []
+        name: longitude
+        description: ''
+        required: true
+        example: 11613.31890586
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      photos:
+        custom: []
+        name: photos
+        description: 'Must be an image. Must not be greater than 10240 kilobytes.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      title: vmqeopfuudtdsufvyvddq
+      description: 'Dolores dolorum amet iste laborum eius est dolor.'
+      category: volunteering
+      latitude: 11613.31890586
+      longitude: 11613.31890586
+    fileParameters:
+      photos:
+        - null
+    responses:
+      -
+        custom: []
+        status: 401
+        content: |-
+          {
+              "message": "Wrong number of segments"
+          }
+        headers:
+          www-authenticate: jwt-auth
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null

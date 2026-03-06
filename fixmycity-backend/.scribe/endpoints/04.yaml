@@ -1,0 +1,140 @@
+name: Boosts
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/boost/create-session
+    metadata:
+      custom: []
+      groupName: Boosts
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a Stripe checkout session for a boost.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      boosted_item_id:
+        custom: []
+        name: boosted_item_id
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      boosted_item_type:
+        custom: []
+        name: boosted_item_type
+        description: ''
+        required: true
+        example: community_help
+        type: string
+        enumValues:
+          - urban_issue
+          - community_help
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      boost_level:
+        custom: []
+        name: boost_level
+        description: ''
+        required: true
+        example: basic
+        type: string
+        enumValues:
+          - basic
+          - premium
+          - super
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      boosted_item_id: consequatur
+      boosted_item_type: community_help
+      boost_level: basic
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: |-
+          {
+              "message": "Wrong number of segments"
+          }
+        headers:
+          www-authenticate: jwt-auth
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/boost/my-boosts
+    metadata:
+      custom: []
+      groupName: Boosts
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Get current user's boost history."
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: |-
+          {
+              "message": "Wrong number of segments"
+          }
+        headers:
+          www-authenticate: jwt-auth
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null

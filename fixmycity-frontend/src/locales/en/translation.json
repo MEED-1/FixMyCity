@@ -1,0 +1,296 @@
+{
+  "navbar": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout",
+    "browseIssues": "Browse Issues",
+    "communityHelp": "Community Help",
+    "about": "About",
+    "signedInAs": "Signed in as"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "myIssues": "My Issues",
+    "reportIssue": "Report Issue",
+    "myHelp": "My Help Requests",
+    "myHelpRequests": "My Help Requests",
+    "myDonations": "My Donations",
+    "myBoosts": "My Boosts",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "browseRequests": "Browse Requests",
+    "communityHelp": "Community Help",
+    "settings": "Settings",
+    "logout": "Log out"
+  },
+  "auth": {
+    "or": "Or",
+    "createAccount": "create a new account",
+    "alreadyAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "email": "Email address",
+    "password": "Password",
+    "fullName": "Full Name",
+    "phone": "Phone Number",
+    "signingIn": "Signing in...",
+    "creatingAccount": "Creating account...",
+    "loginFailed": "Login failed",
+    "registrationFailed": "Registration failed",
+    "joinCommunity": "Join the Community",
+    "feature1": "Report issues in seconds",
+    "feature2": "Connect with neighbors",
+    "feature3": "Earn rewards for impact"
+  },
+  "reportIssue": {
+    "title": "Report an Issue",
+    "subtitle": "Help us make the city better by reporting problems in your neighborhood.",
+    "form": {
+      "title": "Issue Title",
+      "titlePlaceholder": "e.g., Pothole on Main St",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe the issue in detail...",
+      "category": "Category",
+      "priority": "Priority Level",
+      "location": "Location (Click on map)",
+      "photos": "Photos",
+      "uploadText": "Upload files",
+      "dragDrop": "or drag and drop",
+      "cancel": "Cancel",
+      "submit": "Submit Issue",
+      "submitting": "Submitting..."
+    },
+    "categories": {
+      "infrastructure": "Infrastructure",
+      "sanitation": "Sanitation",
+      "lighting": "Lighting",
+      "public_safety": "Public Safety",
+      "parks": "Parks",
+      "water": "Water",
+      "transport": "Transport",
+      "other": "Other"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "subtext": "Here's what's happening in your city today.",
+    "myReports": "My Reports",
+    "allReports": "All Reports",
+    "listView": "List View",
+    "mapView": "Map View",
+    "stats": {
+      "issuesReported": "Issues Reported",
+      "activeRequests": "Active Requests",
+      "totalDonated": "Total Donated",
+      "activeBoosts": "Active Boosts"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "reportIssue": "Report New Issue",
+      "createRequest": "Create Request",
+      "viewMap": "View Map",
+      "browseRequests": "Browse Requests"
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "viewAll": "View All"
+    },
+    "nearbyIssues": {
+      "title": "Issues Near You",
+      "fullMap": "Full Map"
+    },
+    "status": {
+      "all": "All",
+      "open": "Open",
+      "reported": "Reported",
+      "in_progress": "In Progress",
+      "resolved": "Resolved"
+    }
+  },
+  "issues": {
+    "browseTitle": "Browse Urban Issues",
+    "browseSubtitle": "See what's happening in your city",
+    "noIssues": "No issues found matching your filter."
+  },
+  "about": {
+    "title": "About FixMyCity",
+    "subtitle": "Empowering Citizens",
+    "description": "We bridge the gap between citizens and local administration to build better cities together.",
+    "missionTitle": "Our Mission",
+    "missionText": "To provide a transparent, efficient, and collaborative platform for reporting and resolving urban issues. We believe in the power of community engagement to transform our living spaces.",
+    "stat1": "Cities",
+    "stat2": "Issues Resolved"
+  },
+  "landing": {
+    "heroTitle": "Make Your City Better, Together",
+    "heroSubtitle": "Report issues, track progress, and improve your neighborhood with FixMyCity.",
+    "getStarted": "Get Started",
+    "features": "Features"
+  },
+  "donation": {
+    "title": "Donate to \"{{title}}\"",
+    "subtitle": "Your contribution makes a difference. 100% goes to the beneficiary.",
+    "amountLabel": "Amount (DH)",
+    "messageLabel": "Message (Optional)",
+    "messagePlaceholder": "Add a word of support...",
+    "anonymousLabel": "Make donation anonymous",
+    "submitBtn": "Donate {{amount}} DH",
+    "processing": "Processing...",
+    "cancel": "Cancel",
+    "minAmountError": "Minimum donation is 10 DH",
+    "error": "Failed to initialize donation"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitle": "Stay updated with the latest activity.",
+    "markAllRead": "Mark all as read",
+    "markAsRead": "Mark as read",
+    "delete": "Delete",
+    "emptyState": "No notifications",
+    "emptyStateSub": "You're all caught up!",
+    "success": "All notifications marked as read",
+    "removed": "Notification removed"
+  },
+  "community": {
+    "myRequests": "My Help Requests",
+    "requestHelp": "Request Help",
+    "noRequests": "You haven't requested help yet.",
+    "noRequestsSub": "Need a hand? Ask the community!",
+    "backToFeed": "Back to Community Feed",
+    "details": "Details",
+    "postedBy": "Posted by {{name}} on {{date}}",
+    "description": "Description",
+    "progress": "Fundraising Progress",
+    "raised": "{{current}} raised",
+    "goal": "Goal: {{target}}",
+    "location": "Location",
+    "donateBtn": "Donate Now 💖",
+    "volunteerBtn": "Volunteer to Help",
+    "volunteerToast": "Volunteer messaging coming soon!",
+    "notFound": "Request Not Found"
+  },
+  "landingPage": {
+    "hero": {
+      "titleLine1": "Make Your City",
+      "titleLine2": "Better, Together",
+      "description": "Report urban issues, support community causes, and track real change in your neighborhood. Join the movement for a cleaner, safer city.",
+      "ctaReport": "Report an Issue",
+      "ctaMap": "View Map",
+      "card1": {
+        "title": "Park Cleanup",
+        "subtitle": "Scheduled for Today",
+        "volunteers": "12 Volunteers",
+        "distance": "2km away"
+      },
+      "card2": {
+        "title": "Road Hazard",
+        "status": "In Progress"
+      }
+    },
+    "features": {
+      "title": "What can you do?",
+      "subtitle": "Everything you need to be an active citizen.",
+      "card1": {
+        "tag": "Free",
+        "title": "Report Urban Problems",
+        "description": "Spotted a pothole, broken streetlight, or illegal dump? Report it in seconds with photo proof and location."
+      },
+      "card2": {
+        "tag": "Verified",
+        "title": "Support Your Neighbors",
+        "description": "Help families in need by donating to verified community requests. Every contribution makes a difference."
+      },
+      "card3": {
+        "tag": "From 5 DH",
+        "title": "Boost Visibility",
+        "description": "Make urgent problems stand out. Boost issues to get faster municipal attention."
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": "Create Account",
+      "step2": "Report or Request",
+      "step3": "Municipality Responds",
+      "step4": "Problem Solved"
+    },
+    "stats": {
+      "issues": "Issues Reported",
+      "resolution": "Resolution Rate",
+      "funded": "Requests Funded",
+      "partners": "Municipal Partners"
+    },
+    "footer": {
+      "about": "About",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact",
+      "rights": "© 2024 FixMyCity. All rights reserved."
+    }
+  },
+  "header": {
+    "issuesList": "Issues List",
+    "communityHelp": "Community Help",
+    "aboutUs": "About Us"
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "allIssues": "All Issues",
+    "transactions": "Transactions",
+    "users": "Users"
+  },
+  "issueDetails": {
+    "back": "Back",
+    "description": "Description",
+    "deleteIssue": "Delete Issue",
+    "boost": "Boost",
+    "anonymous": "Anonymous",
+    "comments": "Comments",
+    "noComments": "No comments yet. Be the first to discuss this issue.",
+    "addComment": "Add a comment...",
+    "posting": "Posting...",
+    "postComment": "Post Comment",
+    "loginToUpvote": "Please log in to upvote issues.",
+    "loginToBoost": "Please log in to boost issues.",
+    "upvoted": "Upvoted!",
+    "failedUpvote": "Failed to upvote",
+    "failedLoad": "Failed to load issue details",
+    "failedDelete": "Failed to delete",
+    "failedComment": "Failed to post comment",
+    "commentAdded": "Comment added!",
+    "postedOn": "Posted on",
+    "user": "User",
+    "selectPhotosToResolve": "Please select at least one photo to mark as resolved.",
+    "markedResolved": "Issue marked as resolved!",
+    "failedToResolve": "Failed to mark as resolved.",
+    "resolvedPictures": "Resolved Pictures",
+    "markResolved": "Mark as Resolved",
+    "uploadProof": "Upload proof of resolution pictures.",
+    "resolveIssueBtn": "Resolve & Upload"
+  },
+  "issueCard": {
+    "upvotes": "Upvotes",
+    "boost": "Boost",
+    "upvote": "Upvote",
+    "delete": "Delete",
+    "noImage": "No Image",
+    "loginRequired": "Please log in."
+  },
+  "translate": {
+    "translate": "Translate",
+    "showOriginal": "Show Original",
+    "translating": "Translating...",
+    "failed": "Translation failed"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "noResults": "No results"
+  }
+}
