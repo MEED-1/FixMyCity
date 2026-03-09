@@ -51,7 +51,7 @@ function EditIssue() {
         municipality: '',
         latitude: null,
         longitude: null,
-        photos: [] // New photos to upload
+        photos: []
     });
 
     useEffect(() => {

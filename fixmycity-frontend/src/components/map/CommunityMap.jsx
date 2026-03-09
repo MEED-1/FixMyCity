@@ -8,11 +8,11 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 let HelpIcon = L.icon({
-    iconUrl: icon, // Ideally different color
+    iconUrl: icon,
     shadowUrl: iconShadow,
     iconSize: [25, 41],
     iconAnchor: [12, 41],
-    className: 'hue-rotate-90' // CSS trick to change color to green/teal
+    className: 'hue-rotate-90'
 });
 
 function CommunityMap({ requests }) {

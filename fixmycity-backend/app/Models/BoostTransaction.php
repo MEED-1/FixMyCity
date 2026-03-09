@@ -12,13 +12,13 @@ class BoostTransaction extends Model
     protected $fillable = [
         'paid_by_user_id',
         'boosted_item_id',
-        'boosted_item_type', // urban_issue, community_help
-        'boost_level', // basic, premium, super
+        'boosted_item_type',
+        'boost_level',
         'amount',
         'duration_hours',
         'stripe_payment_id',
         'is_self_boost',
-        'status', // pending, completed
+        'status',
         'expires_at',
     ];
 

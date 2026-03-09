@@ -11,11 +11,7 @@ class CloudinaryService
 
     public function __construct()
     {
-        // Cloudinary is configured via CLOUDINARY_URL env var automatically by the SDK
-        // or we can instantiate it manually if needed.
-        // For lavarel-cloudinary package, it might use a Facade, 
-        // but here we will implement a basic wrapper or use the Facade if available.
-        // Given the composer.json has "cloudinary-labs/cloudinary-laravel", we should use its Facade.
+
     }
 
     public function upload($file, $folder = 'fixmycity')
@@ -31,14 +27,12 @@ class CloudinaryService
 
             return $result;
         } catch (\Exception $e) {
-            // Fallback or rethrow
+
             throw $e;
         }
     }
     
-    /**
-     * Upload and get full result including public_id
-     */
+    
     public function uploadWithDetails($file, $folder = 'fixmycity')
     {
          try {

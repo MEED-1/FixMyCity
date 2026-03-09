@@ -6,12 +6,12 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY);
 export const paymentService = {
     async createBoostSession(data) {
         const response = await api.post('/boost/create-session', data);
-        return response.data; // { url }
+        return response.data;
     },
 
     async createDonationSession(data) {
         const response = await api.post('/donations/create-session', data);
-        return response.data; // { url }
+        return response.data;
     },
 
     async getMyBoosts() {

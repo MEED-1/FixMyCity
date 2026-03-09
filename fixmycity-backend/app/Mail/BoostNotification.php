@@ -19,9 +19,7 @@ class BoostNotification extends Mailable
     public $boostLevel;
     public $itemType;
 
-    /**
-     * Create a new message instance.
-     */
+    
     public function __construct($item, $boostLevel, $itemType)
     {
         $this->item = $item;
@@ -29,9 +27,7 @@ class BoostNotification extends Mailable
         $this->itemType = $itemType;
     }
 
-    /**
-     * Get the message envelope.
-     */
+    
     public function envelope(): Envelope
     {
         return new Envelope(
@@ -39,9 +35,7 @@ class BoostNotification extends Mailable
         );
     }
 
-    /**
-     * Get the message content definition.
-     */
+    
     public function content(): Content
     {
         return new Content(
@@ -49,11 +43,7 @@ class BoostNotification extends Mailable
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
+    
     public function attachments(): array
     {
         return [];

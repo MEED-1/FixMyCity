@@ -31,7 +31,7 @@ class CheckExpiredBoosts extends Command
         foreach ($expiredItems as $item) {
             $boostHistory = $item->boost_history ?? [];
             
-            // Find next active boost
+
             $nextBoost = null;
             foreach ($boostHistory as $boost) {
                 $expiresAt = Carbon::parse($boost['expires_at']);
@@ -42,14 +42,14 @@ class CheckExpiredBoosts extends Command
             }
 
             if ($nextBoost) {
-                // Activate next boost
+
                 $item->update([
                     'current_boost_level' => $nextBoost['boost_level'],
                     'boost_expires_at' => $nextBoost['expires_at'],
                 ]);
                 $this->info("Activated next boost for {$modelClass} {$item->_id}");
             } else {
-                // No more active boosts
+
                 $item->update([
                     'current_boost_level' => null,
                     'boost_expires_at' => null,

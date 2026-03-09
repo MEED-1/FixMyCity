@@ -41,7 +41,7 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    // Skip retry logic for refresh and logout endpoints to prevent infinite loops
+
     const skipUrls = ['/auth/refresh', '/auth/logout', '/auth/login'];
     const shouldSkip = skipUrls.some(url => originalRequest?.url?.includes(url));
 
@@ -79,7 +79,7 @@ api.interceptors.response.use(
 
       } catch (refreshError) {
         processQueue(refreshError, null);
-        // Clear state locally without calling the logout API (which would trigger another 401)
+
         localStorage.removeItem('token');
         useAuthStore.setState({ user: null, token: null, isAuthenticated: false });
         return Promise.reject(refreshError);

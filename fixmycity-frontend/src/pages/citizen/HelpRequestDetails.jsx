@@ -310,7 +310,7 @@ function HelpRequestDetails() {
                 isOpen={isDonationModalOpen}
                 onClose={() => {
                     setIsDonationModalOpen(false);
-                    fetchRequestDetails(); // Refresh data after donation
+                    fetchRequestDetails();
                 }}
                 helpRequestId={request._id}
                 helpRequestTitle={request.title}

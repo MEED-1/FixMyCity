@@ -46,13 +46,13 @@ function IssueCard({ issue, onUpvote, isOwner }) {
     const isApproved = issue.status !== 'reported';
 
     const handleDelete = async (e) => {
-        e.preventDefault(); // Prevent link navigation
+        e.preventDefault();
         if (!window.confirm('Are you sure you want to delete this issue? This cannot be undone.')) return;
         try {
             await issueService.delete(issue.id || issue._id);
             toast.success('Issue deleted successfully');
             if (window.location.pathname.includes('/issues/mine')) {
-                window.location.reload(); // Simple way to refresh the list
+                window.location.reload();
             }
         } catch (error) {
             toast.error(error.response?.data?.error || 'Failed to delete');

@@ -193,7 +193,7 @@ class CommunityHelpController extends Controller
                 'message' => 'Your help request was edited and is now pending admin approval again.',
                 'type' => 'status_update',
                 'related_id' => $helpRequest->id,
-                'related_type' => 'urban_issue', // Or help_request if you use that
+                'related_type' => 'urban_issue',
             ]);
         }
 

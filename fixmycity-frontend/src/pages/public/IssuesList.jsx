@@ -13,7 +13,7 @@ const IssuesList = () => {
     const { isAuthenticated } = useAuthStore();
     const [issues, setIssues] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [filter, setFilter] = useState('all'); // all, open, in_progress, resolved
+    const [filter, setFilter] = useState('all');
     const [category, setCategory] = useState('all');
     const [municipality, setMunicipality] = useState('all');
     const [sort, setSort] = useState('latest');

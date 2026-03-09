@@ -16,7 +16,7 @@ class Donation extends Model
         'is_anonymous',
         'message',
         'stripe_payment_id',
-        'status', // pending, completed, failed
+        'status',
     ];
 
     protected $casts = [

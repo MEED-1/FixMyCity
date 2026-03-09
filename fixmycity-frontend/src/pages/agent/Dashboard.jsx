@@ -21,9 +21,9 @@ function AgentDashboard() {
     const { t } = useTranslation();
     const [issues, setIssues] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [viewMode, setViewMode] = useState('list'); // 'list' or 'map'
+    const [viewMode, setViewMode] = useState('list');
 
-    // Resolve Modal State
+
     const [resolveModalOpen, setResolveModalOpen] = useState(false);
     const [resolvingIssueId, setResolvingIssueId] = useState(null);
     const [resolveFiles, setResolveFiles] = useState([]);
@@ -49,7 +49,7 @@ function AgentDashboard() {
         try {
             await agentService.updateStatus(id, newStatus);
             toast.success(`Issue marked as ${newStatus.replace('_', ' ')}`);
-            fetchIssues(); // Refresh list
+            fetchIssues();
         } catch (error) {
             toast.error(error.response?.data?.error || 'Failed to update status');
         }
@@ -258,7 +258,7 @@ function AgentDashboard() {
                 )}
             </main>
 
-            {/* Resolve Modal */}
+            {}
             {resolveModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-200">

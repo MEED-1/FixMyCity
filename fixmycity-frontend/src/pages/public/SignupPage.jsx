@@ -47,7 +47,7 @@ function SignupPage() {
                     <div className="absolute inset-0 bg-linear-to-tr from-[#3D2B1F]/60 to-[#5C3D2E]/60"></div>
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"></div>
 
-                    {/* Overlay content removed for cleaner look */}
+                    {}
                 </div>
 
                 {}
