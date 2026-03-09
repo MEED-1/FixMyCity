@@ -7,6 +7,7 @@ use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+
 class AgentController extends Controller
 {
     
@@ -81,26 +82,9 @@ class AgentController extends Controller
         if ($request->hasFile('resolved_photos') && $request->status === 'resolved') {
             $photoUrls = $issue->resolved_photos ?? [];
             
-            $url = env('CLOUDINARY_URL');
-            if ($url) {
-                $cleanUrl = str_replace('cloudinary://', '', $url);
-                list($auth, $cloud_name) = explode('@', $cleanUrl);
-                list($api_key, $api_secret) = explode(':', $auth);
-                
-                \Cloudinary\Configuration\Configuration::instance([
-                    'cloud' => [
-                        'cloud_name' => $cloud_name, 
-                        'api_key' => $api_key, 
-                        'api_secret' => $api_secret
-                    ],
-                    'url' => ['secure' => true]
-                ]);
-            }
-
             foreach ($request->file('resolved_photos') as $photo) {
                 try {
-                    $uploadApi = new \Cloudinary\Api\Upload\UploadApi();
-                    $result = $uploadApi->upload($photo->getRealPath(), [
+                    $result = cloudinary()->uploadApi()->upload($photo->getRealPath(), [
                         'folder' => 'fixmycity/resolved_issues'
                     ]);
                     $photoUrls[] = $result['secure_url'];

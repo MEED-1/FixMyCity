@@ -315,6 +315,7 @@ class AdminController extends Controller
     {
         $validator = \Validator::make($request->all(), [
             'role' => 'required|in:citizen,agent,admin',
+            'municipality' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -327,6 +328,9 @@ class AdminController extends Controller
         }
 
         $user->role = $request->role;
+        if ($request->has('municipality')) {
+            $user->municipality = $request->municipality;
+        }
         $user->save();
 
         return response()->json($user);

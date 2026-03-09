@@ -34,15 +34,19 @@ function Dashboard() {
     const recentActivity = userIssues.slice(0, 5).map(issue => ({
         id: issue.id,
         icon: issue.status === 'resolved' ? '✅' : (issue.status === 'in_progress' ? '🚧' : '📍'),
-        title: "Status Update",
-        text: `Your issue "${issue.title}" is now ${issue.status?.replace('_', ' ')}`,
-        time: "Recently",
+        title: t('citizenDashboard.statusUpdate'),
+        text: t('citizenDashboard.issueNowStatus', { title: issue.title, status: t(`issues.status.${issue.status}`) }),
+        time: t('citizenDashboard.recently'),
         bg: issue.status === 'resolved' ? 'bg-green-500/10 text-green-500' : 'bg-primary/10 text-primary'
     }));
 
     if (recentActivity.length === 0) {
         recentActivity.push({
-            icon: '👋', title: "Welcome!", text: "You haven't reported any issues yet.", time: "Just now", bg: 'bg-primary/10 text-primary'
+            icon: '👋',
+            title: t('citizenDashboard.welcome'),
+            text: t('citizenDashboard.noReportsYet'),
+            time: t('citizenDashboard.justNow'),
+            bg: 'bg-primary/10 text-primary'
         });
     }
 
@@ -64,7 +68,7 @@ function Dashboard() {
                                 <p className="text-sm font-medium text-muted-foreground">{t('dashboard.personalSummary', 'Personal Summary')}</p>
                             </div>
                             <Link to="/profile" className="ml-auto px-4 py-1.5 text-xs font-bold text-white bg-slate-800 hover:bg-slate-700 dark:bg-white dark:text-black dark:hover:bg-gray-200 rounded-full transition-colors">
-                                Manage
+                                {t('citizenDashboard.manage')}
                             </Link>
                         </div>
 
@@ -74,7 +78,7 @@ function Dashboard() {
                                     <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                                         <DocumentTextIcon className="w-5 h-5" />
                                     </div>
-                                    <span className="text-sm font-bold text-foreground">Total Reports</span>
+                                    <span className="text-sm font-bold text-foreground">{t('citizenDashboard.totalReports')}</span>
                                 </div>
                                 <span className="text-2xl font-extrabold text-foreground">{userIssues.length}</span>
                             </div>
@@ -84,7 +88,7 @@ function Dashboard() {
                                     <div className="w-10 h-10 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform">
                                         <WrenchIcon className="w-5 h-5" />
                                     </div>
-                                    <span className="text-sm font-bold text-foreground">In Progress</span>
+                                    <span className="text-sm font-bold text-foreground">{t('citizenDashboard.inProgress')}</span>
                                 </div>
                                 <span className="text-2xl font-extrabold text-foreground">{inProgressCount}</span>
                             </div>
@@ -94,7 +98,7 @@ function Dashboard() {
                                     <div className="w-10 h-10 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-500 group-hover:scale-110 transition-transform">
                                         <CheckCircleIcon className="w-5 h-5" />
                                     </div>
-                                    <span className="text-sm font-bold text-foreground">Resolved</span>
+                                    <span className="text-sm font-bold text-foreground">{t('citizenDashboard.resolved')}</span>
                                 </div>
                                 <span className="text-2xl font-extrabold text-foreground">{resolvedCount}</span>
                             </div>
@@ -104,7 +108,7 @@ function Dashboard() {
                                     <div className="w-10 h-10 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-500 group-hover:scale-110 transition-transform">
                                         <BoltIcon className="w-5 h-5" />
                                     </div>
-                                    <span className="text-sm font-bold text-foreground">Boosts Used</span>
+                                    <span className="text-sm font-bold text-foreground">{t('citizenDashboard.boostsUsed')}</span>
                                 </div>
                                 <span className="text-2xl font-extrabold text-foreground">{user?.boosts_used || 0}</span>
                             </div>
@@ -117,11 +121,11 @@ function Dashboard() {
                             <div className="bg-surface/95 backdrop-blur-xl px-4 py-2.5 rounded-2xl shadow-sm border border-border/10 pointer-events-auto">
                                 <span className="font-bold text-sm text-foreground flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                                    {t('dashboard.cityMap', 'Live City Map')}
+                                    {t('dashboard.cityMap')}
                                 </span>
                             </div>
                             <Link to="/map" className="bg-surface/95 backdrop-blur-xl px-4 py-2.5 rounded-2xl shadow-sm border border-border/10 text-xs font-bold text-foreground hover:text-primary transition-colors pointer-events-auto flex items-center gap-2">
-                                <MapIcon className="w-4 h-4" /> Expand
+                                <MapIcon className="w-4 h-4" /> {t('citizenDashboard.expand')}
                             </Link>
                         </div>
                         <div className="w-full h-full flex-1 rounded-[1.4rem] overflow-hidden bg-muted relative">
@@ -148,8 +152,8 @@ function Dashboard() {
                             <PlusCircleIcon className="w-6 h-6" />
                         </div>
                         <div>
-                            <h3 className="text-sm md:text-base font-bold">Report New Issue</h3>
-                            <p className="text-[11px] md:text-xs text-primary-foreground/80 font-medium mt-0.5">Start a new report</p>
+                            <h3 className="text-sm md:text-base font-bold">{t('citizenDashboard.reportNewIssue')}</h3>
+                            <p className="text-[11px] md:text-xs text-primary-foreground/80 font-medium mt-0.5">{t('citizenDashboard.startNewReport')}</p>
                         </div>
                     </Link>
 
@@ -158,8 +162,8 @@ function Dashboard() {
                             <ListBulletIcon className="w-6 h-6" />
                         </div>
                         <div>
-                            <h3 className="text-sm md:text-base font-bold text-foreground">View My Issues</h3>
-                            <p className="text-[11px] md:text-xs text-muted-foreground font-medium mt-0.5">See all your reports</p>
+                            <h3 className="text-sm md:text-base font-bold text-foreground">{t('citizenDashboard.viewMyIssues')}</h3>
+                            <p className="text-[11px] md:text-xs text-muted-foreground font-medium mt-0.5">{t('citizenDashboard.seeAllReports')}</p>
                         </div>
                     </Link>
 
@@ -168,8 +172,8 @@ function Dashboard() {
                             <EyeIcon className="w-6 h-6" />
                         </div>
                         <div>
-                            <h3 className="text-sm md:text-base font-bold text-foreground">Track an Issue</h3>
-                            <p className="text-[11px] md:text-xs text-muted-foreground font-medium mt-0.5">Find latest updates</p>
+                            <h3 className="text-sm md:text-base font-bold text-foreground">{t('citizenDashboard.trackIssue')}</h3>
+                            <p className="text-[11px] md:text-xs text-muted-foreground font-medium mt-0.5">{t('citizenDashboard.findUpdates')}</p>
                         </div>
                     </Link>
 
@@ -178,8 +182,8 @@ function Dashboard() {
                             <UserCircleIcon className="w-6 h-6" />
                         </div>
                         <div>
-                            <h3 className="text-sm md:text-base font-bold text-foreground">Manage Account</h3>
-                            <p className="text-[11px] md:text-xs text-muted-foreground font-medium mt-0.5">Settings & profile</p>
+                            <h3 className="text-sm md:text-base font-bold text-foreground">{t('citizenDashboard.manageAccount')}</h3>
+                            <p className="text-[11px] md:text-xs text-muted-foreground font-medium mt-0.5">{t('citizenDashboard.settingsProfile')}</p>
                         </div>
                     </Link>
 

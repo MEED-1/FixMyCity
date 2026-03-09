@@ -28,6 +28,10 @@ function MyHelpRequests() {
         }
     };
 
+    const handleDelete = (deletedId) => {
+        setRequests(prev => prev.filter(r => (r._id || r.id) !== deletedId));
+    };
+
     return (
         <DashboardLayout>
             <div className="max-w-7xl mx-auto">
@@ -57,7 +61,7 @@ function MyHelpRequests() {
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {requests.map((req) => (
-                            <HelpCard key={req._id} request={req} isOwner={true} />
+                            <HelpCard key={req._id} request={req} isOwner={true} onDelete={handleDelete} />
                         ))}
                     </div>
                 )}

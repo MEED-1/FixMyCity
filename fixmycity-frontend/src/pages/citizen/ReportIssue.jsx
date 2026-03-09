@@ -291,7 +291,7 @@ function ReportIssue() {
                             {imagePreviews.length > 0 && (
                                 <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                                     {imagePreviews.map((src, index) => (
-                                        <div key={index} className="relative group rounded-xl overflow-hidden aspect-square border-blue-400 border-2">
+                                        <div key={index} className="relative group rounded-xl overflow-hidden aspect-square border-primary border-2">
                                             <img src={src} alt="Preview" className="w-full h-full object-cover" />
                                             <button
                                                 onClick={() => removePhoto(index)}

@@ -76,8 +76,10 @@ export const adminService = {
         return response.data;
     },
 
-    async updateUserRole(userId, role) {
-        const response = await api.patch(`/admin/users/${userId}/role`, { role });
+    async updateUserRole(userId, role, municipality = null) {
+        const payload = { role };
+        if (municipality) payload.municipality = municipality;
+        const response = await api.patch(`/admin/users/${userId}/role`, payload);
         return response.data;
     },
 

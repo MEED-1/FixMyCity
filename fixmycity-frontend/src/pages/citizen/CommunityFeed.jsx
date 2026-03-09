@@ -8,9 +8,11 @@ import HelpCard from '../../components/community/HelpCard';
 import { helpService } from '../../services/helpService';
 import { toast } from 'react-toastify';
 import { MapIcon, ListBulletIcon, PlusIcon, HandRaisedIcon } from '@heroicons/react/24/outline';
+import { useTranslation } from 'react-i18next';
 
 function CommunityFeed() {
     const { isAuthenticated } = useAuthStore();
+    const { t } = useTranslation();
     const [requests, setRequests] = useState([]);
     const [loading, setLoading] = useState(true);
     const [viewMode, setViewMode] = useState('list');
@@ -44,15 +46,15 @@ function CommunityFeed() {
             {}
             <div className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-foreground">Community Help</h1>
-                    <p className="mt-1 text-muted-foreground">Connect with neighbors, find help, or offer support.</p>
+                    <h1 className="text-2xl font-bold text-foreground">{t('communityFeed.title')}</h1>
+                    <p className="mt-1 text-muted-foreground">{t('communityFeed.subtitle')}</p>
                 </div>
                 <Link
                     to="/community/request"
                     className="btn-primary-3d"
                 >
                     <PlusIcon className="h-5 w-5 mr-2" />
-                    Request Help
+                    {t('communityFeed.requestHelp')}
                 </Link>
             </div>
 
@@ -69,7 +71,7 @@ function CommunityFeed() {
                                     : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                                 }`}
                         >
-                            {category}
+                            {t(`communityFeed.${category}`, category)}
                         </button>
                     ))}
                 </div>
@@ -117,15 +119,15 @@ function CommunityFeed() {
                                     <div className="mx-auto h-16 w-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                                         <HandRaisedIcon className="h-8 w-8" />
                                     </div>
-                                    <h3 className="text-lg font-semibold text-foreground">No requests found</h3>
-                                    <p className="mt-1 text-sm text-muted-foreground">Get started by creating a new request for help.</p>
+                                    <h3 className="text-lg font-semibold text-foreground">{t('communityFeed.noRequests')}</h3>
+                                    <p className="mt-1 text-sm text-muted-foreground">{t('communityFeed.noRequestsSub')}</p>
                                     <div className="mt-6">
                                         <Link
                                             to="/community/request"
                                             className="btn-primary-3d"
                                         >
                                             <PlusIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
-                                            New Request
+                                            {t('communityFeed.newRequest')}
                                         </Link>
                                     </div>
                                 </div>

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import { adminService } from '../../services/adminService';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 function Transactions() {
+    const { t } = useTranslation();
     const [transactions, setTransactions] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -29,8 +31,8 @@ function Transactions() {
         <DashboardLayout>
             <div className="max-w-7xl mx-auto">
                 <div className="mb-8">
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Transactions</h1>
-                    <p className="text-gray-500 dark:text-gray-400">Monitor platform payments and financial activity.</p>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('transactions.title')}</h1>
+                    <p className="text-gray-500 dark:text-gray-400">{t('transactions.subtitle')}</p>
                 </div>
 
                 {loading ? (
@@ -43,23 +45,23 @@ function Transactions() {
                             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead className="bg-gray-50 dark:bg-slate-700/50">
                                     <tr>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">User</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Type</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Amount</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('transactions.date')}</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('transactions.user')}</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('transactions.type')}</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('transactions.amount')}</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('transactions.status')}</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white dark:bg-slate-800 divide-y divide-gray-200 dark:divide-gray-700">
                                     {transactions.length === 0 ? (
                                         <tr>
                                             <td colSpan="5" className="px-6 py-10 text-center text-gray-500 dark:text-gray-400">
-                                                No transactions found.
+                                                {t('transactions.noTransactions')}
                                             </td>
                                         </tr>
                                     ) : (
                                         transactions.map((txn) => (
-                                            <tr key={txn._id} className="hover:bg-gray-50 dark:hover:bg-slate-700/30 transition-colors">
+                                            <tr key={txn.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/30 transition-colors">
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                                                     {new Date(txn.createdAt).toLocaleDateString()}
                                                 </td>
@@ -67,18 +69,24 @@ function Transactions() {
                                                     <div className="text-sm font-medium text-gray-900 dark:text-white">{txn.user?.name || 'Unknown'}</div>
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                                                        ${txn.type === 'boost' ? 'bg-orange-100 text-orange-800' : 'bg-primary/10 text-primary'}`}>
-                                                        {txn.type.toUpperCase()}
+                                                    <span className={`px-2 py-1 rounded-lg text-[10px] font-medium shadow-sm border ${
+                                                        txn.type === 'boost' ? 'bg-primary/5 text-primary border-primary/10' :
+                                                        txn.type === 'donation' ? 'bg-amber-50 text-amber-700 border-amber-100' :
+                                                        'bg-gray-50 text-gray-700 border-gray-100'
+                                                    }`}>
+                                                        {t(`community.${txn.type}`, txn.type)}
                                                     </span>
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900 dark:text-white">
                                                     {txn.currency?.toUpperCase()} {txn.amount}
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-                                                        ${txn.status === 'succeeded' ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-800'}`}>
-                                                        {txn.status}
+                                                    <span className={`px-2 py-1 rounded-full text-[10px] font-medium ${
+                                                        txn.status === 'completed' ? 'bg-green-100 text-green-700' :
+                                                        txn.status === 'failed' ? 'bg-red-100 text-red-700' :
+                                                        'bg-primary/10 text-primary'
+                                                    }`}>
+                                                        {t(`transactions.${txn.status}`, txn.status)}
                                                     </span>
                                                 </td>
                                             </tr>

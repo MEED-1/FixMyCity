@@ -1,10 +1,10 @@
-﻿# General Dependencies
+# Dependencies
 node_modules/
 vendor/
 
 # Environment Variables
 .env
-*.env
+*.env.local
 
 # Build & Cache
 dist/
@@ -21,7 +21,27 @@ storage/app/public/
 .DS_Store
 Thumbs.db
 
-# Personal Files & Scripts
-test_image.txt
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Debug & Test Scripts
+test_*.php
+test_*.txt
+debug_*.php
+check_*.php
+*_err.txt
+*_err?.txt
+*_output.txt
+eslint-report.json
+eslint_output.txt
+
+# Laravel
+composer.lock
+.scribe/
+
+# Miscellaneous
 fix.txt
 cleanup.mjs

@@ -135,7 +135,7 @@ function IssueDetails() {
     const getStatusStyle = (status) => {
         switch (status) {
             case 'reported': return 'bg-amber-500/15 text-amber-600 dark:text-amber-400 ring-amber-500/20';
-            case 'in_progress': return 'bg-blue-500/15 text-blue-600 dark:text-blue-400 ring-blue-500/20';
+            case 'in_progress': return 'bg-amber-500/15 text-amber-600 dark:text-amber-400 ring-amber-500/20';
             case 'resolved': return 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 ring-emerald-500/20';
             case 'rejected': return 'bg-red-500/15 text-red-600 dark:text-red-400 ring-red-500/20';
             default: return 'bg-muted text-muted-foreground ring-border';
@@ -220,7 +220,7 @@ function IssueDetails() {
                                 <div className="absolute top-4 left-4">
                                     <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ring-1 backdrop-blur-md ${getStatusStyle(issue.status)}`}>
                                         <span className={`w-1.5 h-1.5 rounded-full ${issue.status === 'resolved' ? 'bg-emerald-500' :
-                                            issue.status === 'in_progress' ? 'bg-blue-500' : 'bg-amber-500'
+                                            issue.status === 'in_progress' ? 'bg-amber-500' : 'bg-amber-500'
                                             }`} />
                                         {t(`dashboard.status.${issue.status}`, issue.status.replace('_', ' '))}
                                     </span>
@@ -361,7 +361,7 @@ function IssueDetails() {
                                         <div className="flex gap-2">
                                             <button
                                                 onClick={() => navigate(`/urban-issues/edit/${issue._id || issue.id}`)}
-                                                className="flex-1 flex items-center justify-center gap-2 bg-blue-500/10 text-blue-600 dark:text-blue-400 hover:bg-blue-500/20 font-semibold py-2.5 rounded-xl text-sm transition-colors"
+                                                className="flex-1 flex items-center justify-center gap-2 bg-primary/10 text-primary hover:bg-primary/20 font-semibold py-2.5 rounded-xl text-sm transition-colors"
                                             >
                                                 Edit
                                             </button>
@@ -395,7 +395,7 @@ function IssueDetails() {
 
                                 {}
                                 <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
+                                    <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
                                         <TagIcon className="w-4 h-4" />
                                     </div>
                                     <div>
@@ -496,20 +496,20 @@ function IssueDetails() {
 
                         {}
                         {isAgent && issue.status !== 'resolved' && (
-                            <div className="card-standard p-5 mt-6 border-blue-500/20 bg-blue-50/50 dark:bg-blue-900/10">
-                                <h3 className="text-sm font-bold text-blue-800 dark:text-blue-300 mb-3">{t('issueDetails.markResolved', 'Mark as Resolved')}</h3>
+                            <div className="card-standard p-5 mt-6 border-primary/20 bg-primary/5 dark:bg-primary/10">
+                                <h3 className="text-sm font-bold text-primary mb-3">{t('issueDetails.markResolved', 'Mark as Resolved')}</h3>
                                 <p className="text-xs text-muted-foreground mb-3">{t('issueDetails.uploadProof', 'Upload proof of resolution pictures.')}</p>
                                 <input
                                     type="file"
                                     multiple
                                     accept="image/*"
                                     onChange={(e) => setResolvedPhotos(e.target.files)}
-                                    className="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 mb-3"
+                                    className="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 mb-3"
                                 />
                                 <button
                                     onClick={handleResolveIssue}
                                     disabled={isResolving || !resolvedPhotos || resolvedPhotos.length === 0}
-                                    className="w-full py-2 bg-blue-600 text-white text-xs font-bold rounded-xl hover:bg-blue-700 transition disabled:opacity-50"
+                                    className="w-full py-2 bg-primary text-white text-xs font-bold rounded-xl hover:bg-primary/90 transition disabled:opacity-50"
                                 >
                                     {isResolving ? t('common.loading', 'Uploading...') : t('issueDetails.resolveIssueBtn', 'Resolve & Upload')}
                                 </button>

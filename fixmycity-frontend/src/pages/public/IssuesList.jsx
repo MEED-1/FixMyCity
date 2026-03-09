@@ -99,7 +99,10 @@ const IssuesList = () => {
                         onChange={(val) => setCategory(val)}
                         options={[
                             { value: 'all', label: t('issues.category.all', 'All Categories') },
-                            ...categoriesList.map(c => ({ value: c, label: c }))
+                            ...categoriesList.map(c => ({ 
+                                value: c, 
+                                label: t(`reportIssue.categories.${c.toLowerCase().replace(/\s+/g, '_')}`, c) 
+                            }))
                         ]}
                     />
 

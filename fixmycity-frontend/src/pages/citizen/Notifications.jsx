@@ -61,7 +61,7 @@ function Notifications() {
         switch (type) {
             case 'issue_status_changed': return <CheckCircleIcon className="h-6 w-6 text-primary" />;
             case 'donation_received': return <CheckCircleIcon className="h-6 w-6 text-emerald-500" />;
-            case 'new_comment': return <InformationCircleIcon className="h-6 w-6 text-blue-500" />;
+            case 'new_comment': return <InformationCircleIcon className="h-6 w-6 text-primary" />;
             default: return <BellIcon className="h-6 w-6 text-gray-400" />;
         }
     };
@@ -98,7 +98,7 @@ function Notifications() {
                             {notifications.map((notification) => (
                                 <div
                                     key={notification._id}
-                                    className={`p-6 transition-colors hover:bg-gray-50 dark:hover:bg-slate-800/80 flex items-start space-x-4 ${!notification.read_at ? 'bg-blue-50/50 dark:bg-blue-900/20' : ''}`}
+                                    className={`p-6 transition-colors hover:bg-gray-50 dark:hover:bg-slate-800/80 flex items-start space-x-4 ${!notification.read_at ? 'bg-primary/5 dark:bg-primary/10' : ''}`}
                                 >
                                     <div className="shrink-0 pt-0.5">
                                         {getIconByType(notification.type)}

@@ -23,7 +23,7 @@ function IssueCard({ issue, onUpvote, isOwner }) {
     const getStatusColor = (status) => {
         switch (status) {
             case 'reported': return 'bg-yellow-100 text-yellow-800';
-            case 'in_progress': return 'bg-blue-100 text-blue-800';
+            case 'in_progress': return 'bg-amber-100 text-amber-800';
             case 'resolved': return 'bg-primary/10 text-primary';
             case 'rejected': return 'bg-red-100 text-red-800';
             default: return 'bg-gray-100 text-gray-800';
@@ -97,10 +97,10 @@ function IssueCard({ issue, onUpvote, isOwner }) {
                     {}
                     <div className="absolute top-2.5 left-2.5 flex flex-col gap-2">
                         <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold backdrop-blur-md bg-white/80 dark:bg-black/60 shadow-sm ${issue.status === 'resolved' ? 'text-primary' :
-                            issue.status === 'in_progress' ? 'text-blue-600' : 'text-amber-600'
+                            issue.status === 'in_progress' ? 'text-amber-600' : 'text-amber-600'
                             }`}>
                             <span className={`w-1.5 h-1.5 rounded-full mr-1 ${issue.status === 'resolved' ? 'bg-primary' :
-                                issue.status === 'in_progress' ? 'bg-blue-500' : 'bg-amber-500'
+                                issue.status === 'in_progress' ? 'bg-amber-500' : 'bg-amber-500'
                                 }`} />
                             {t(`dashboard.status.${issue.status}`, issue.status.replace('_', ' '))}
                         </span>

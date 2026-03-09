@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import useAuthStore from '../../store/useAuthStore';
 import Navbar from '../../components/common/Navbar';
 import { useTranslation } from 'react-i18next';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
-import { lookupService } from '../../services/lookupService';
 
 import { getDashboardPath } from '../../utils/roleUtils';
 
@@ -13,27 +12,13 @@ function SignupPage() {
     const { register, loading, error } = useAuthStore();
     const { t } = useTranslation();
     const [showPassword, setShowPassword] = useState(false);
-    const [municipalities, setMunicipalities] = useState([]);
 
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
         phone: '',
-        municipality: '',
     });
-
-    useEffect(() => {
-        const fetchMunicipalities = async () => {
-            try {
-                const data = await lookupService.municipalities.getAll();
-                setMunicipalities(data.map(m => m.name));
-            } catch (error) {
-                console.error("Failed to fetch municipalities", error);
-            }
-        };
-        fetchMunicipalities();
-    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -54,26 +39,15 @@ function SignupPage() {
             <div className="grow flex">
                 {}
                 <div className="hidden lg:flex w-1/2 bg-[#3D2B1F] relative overflow-hidden items-center justify-center">
-                    <div className="absolute inset-0 bg-linear-to-tr from-[#3D2B1F] to-[#5C3D2E]"></div>
+                    <img
+                        src="/assets/images/signup.png"
+                        alt="Community Collaboration"
+                        className="absolute inset-0 w-full h-full object-cover opacity-70"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-tr from-[#3D2B1F]/60 to-[#5C3D2E]/60"></div>
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"></div>
 
-                    <div className="relative z-10 text-center px-10 text-white">
-                        <h2 className="text-4xl font-bold mb-6">{t('auth.joinCommunity')}</h2>
-                        <div className="space-y-6 text-lg text-white/80">
-                            <div className="flex items-center space-x-4 glass-panel p-4 rounded-xl border-none bg-white/10">
-                                <span className="text-3xl">📢</span>
-                                <span>{t('auth.feature1')}</span>
-                            </div>
-                            <div className="flex items-center space-x-4 glass-panel p-4 rounded-xl border-none bg-white/10">
-                                <span className="text-3xl">🤝</span>
-                                <span>{t('auth.feature2')}</span>
-                            </div>
-                            <div className="flex items-center space-x-4 glass-panel p-4 rounded-xl border-none bg-white/10">
-                                <span className="text-3xl">✨</span>
-                                <span>{t('auth.feature3')}</span>
-                            </div>
-                        </div>
-                    </div>
+                    {/* Overlay content removed for cleaner look */}
                 </div>
 
                 {}
@@ -157,26 +131,6 @@ function SignupPage() {
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label htmlFor="municipality" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                        {t('auth.municipality', 'Municipality')}
-                                    </label>
-                                    <div className="mt-1">
-                                        <select
-                                            id="municipality"
-                                            name="municipality"
-                                            required
-                                            value={formData.municipality}
-                                            onChange={handleChange}
-                                            className="appearance-none block w-full px-4 py-3 border border-gray-300 dark:border-border dark:bg-background dark:text-white rounded-xl shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm transition hover:border-primary"
-                                        >
-                                            <option value="">{t('auth.selectMunicipality', 'Select Municipality')}</option>
-                                            {municipalities.map(m => (
-                                                <option key={m} value={m}>{m}</option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                </div>
 
                                 <div>
                                     <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">

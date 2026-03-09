@@ -22,7 +22,7 @@ function LandingPage() {
                             <p className="mt-4 text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                                 {t('landingPage.hero.description')}
                             </p>
-                            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start rtl:lg:justify-start">
                                 <Link
                                     to="/report"
                                     className="btn-primary-3d px-8 py-4 rounded-xl text-lg font-bold flex items-center justify-center transform hover:-translate-y-1 transition-all"
@@ -38,10 +38,10 @@ function LandingPage() {
                             </div>
                         </div>
                         {}
-                        <div className="hidden lg:block absolute top-1/2 right-0 transform -translate-y-1/2 w-1/2 h-full z-0">
+                        <div className="hidden lg:block absolute top-1/2 ltr:right-0 rtl:left-0 transform -translate-y-1/2 w-1/2 h-full z-0">
                             {}
-                            <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-linear-to-br from-primary/20 to-amber-700/20 rounded-full blur-3xl animate-pulse"></div>
-                            <div className="relative z-10 mt-20 ml-20">
+                            <div className="absolute top-20 ltr:right-10 rtl:left-10 w-[500px] h-[500px] bg-linear-to-br from-primary/20 to-amber-700/20 rounded-full blur-3xl animate-pulse"></div>
+                            <div className="relative z-10 mt-20 ltr:ml-20 rtl:mr-20">
                                 <div className="glass-panel p-6 rounded-2xl w-96 transform rotate-6 hover:rotate-2 transition-transform duration-500">
                                     <div className="flex items-center gap-3 mb-4">
                                         <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-xl">🌳</div>
@@ -50,14 +50,20 @@ function LandingPage() {
                                             <p className="text-xs text-gray-500">{t('landingPage.hero.card1.subtitle')}</p>
                                         </div>
                                     </div>
-                                    <div className="h-32 bg-gray-200 rounded-lg mb-3"></div>
+                                    <div className="h-32 bg-gray-200 rounded-lg mb-3 overflow-hidden">
+                                        <img
+                                            src="/assets/images/hero_card.png"
+                                            alt="Clean City"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
                                     <div className="flex justify-between text-sm">
                                         <span className="text-primary font-bold">{t('landingPage.hero.card1.volunteers')}</span>
                                         <span className="text-gray-500">{t('landingPage.hero.card1.distance')}</span>
                                     </div>
                                 </div>
 
-                                <div className="glass-panel p-5 rounded-2xl w-80 absolute -bottom-20 -left-10 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                                <div className="glass-panel p-5 rounded-2xl w-80 absolute -bottom-20 ltr:-left-10 rtl:-right-10 transform ltr:-rotate-3 rtl:rotate-3 hover:rotate-0 transition-transform duration-500">
                                     <div className="flex items-center gap-3">
                                         <span className="text-2xl">🚧</span>
                                         <div>
@@ -82,8 +88,8 @@ function LandingPage() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {}
                             <div className="glass-panel p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">{t('landingPage.features.card1.tag')}</div>
-                                <div className="w-16 h-16 bg-blue-50 dark:bg-surface rounded-2xl flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition-transform">📍</div>
+                                <div className="absolute top-4 ltr:right-4 rtl:left-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">{t('landingPage.features.card1.tag')}</div>
+                                <div className="w-16 h-16 bg-primary/10 dark:bg-surface rounded-2xl flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition-transform">📍</div>
                                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('landingPage.features.card1.title')}</h3>
                                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                                     {t('landingPage.features.card1.description')}
@@ -92,7 +98,7 @@ function LandingPage() {
 
                             {}
                             <div className="glass-panel p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-shadow relative overflow-hidden group">
-                                <div className="absolute top-4 right-4 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold px-3 py-1 rounded-full">{t('landingPage.features.card2.tag')}</div>
+                                <div className="absolute top-4 right-4 bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">{t('landingPage.features.card2.tag')}</div>
                                 <div className="w-16 h-16 bg-purple-50 dark:bg-surface rounded-2xl flex items-center justify-center text-4xl mb-6 group-hover:scale-110 transition-transform">🤝</div>
                                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('landingPage.features.card2.title')}</h3>
                                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -126,7 +132,7 @@ function LandingPage() {
                                 <h4 className="font-bold text-lg dark:text-white">{t('landingPage.howItWorks.step1')}</h4>
                             </div>
                             <div className="flex flex-col items-center">
-                                <div className="w-20 h-20 rounded-full bg-white dark:bg-surface shadow-md flex items-center justify-center text-3xl mb-4 text-blue-500">📝</div>
+                                <div className="w-20 h-20 rounded-full bg-white dark:bg-surface shadow-md flex items-center justify-center text-3xl mb-4 text-primary">📝</div>
                                 <h4 className="font-bold text-lg dark:text-white">{t('landingPage.howItWorks.step2')}</h4>
                             </div>
                             <div className="flex flex-col items-center">
@@ -175,12 +181,7 @@ function LandingPage() {
                             <Link to="/terms" className="hover:text-white transition-colors">{t('landingPage.footer.terms')}</Link>
                             <Link to="/contact" className="hover:text-white transition-colors">{t('landingPage.footer.contact')}</Link>
                         </div>
-                        <div className="flex gap-6">
-                            {}
-                            <a href="#" className="hover:text-white">🐦</a>
-                            <a href="#" className="hover:text-white">📘</a>
-                            <a href="#" className="hover:text-white">📸</a>
-                        </div>
+
                     </div>
                     <div className="text-center mt-8 text-sm text-slate-500">
                         {t('landingPage.footer.rights')}

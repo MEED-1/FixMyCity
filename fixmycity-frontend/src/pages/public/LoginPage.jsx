@@ -30,18 +30,17 @@ function LoginPage() {
             <div className="grow flex">
                 {}
                 <div className="hidden lg:flex w-1/2 bg-slate-900 relative overflow-hidden items-center justify-center">
-                    <div className="absolute inset-0 bg-linear-to-br from-primary/30 to-purple-900/30"></div>
+                    <img
+                        src="/assets/images/login.png"
+                        alt="Smart City Night"
+                        className="absolute inset-0 w-full h-full object-cover opacity-70"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/40 to-purple-900/40 opacity-70"></div>
                     {}
                     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
                     <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
 
-                    <div className="relative z-10 text-center px-10">
-                        <h2 className="text-4xl font-bold text-white mb-6">{t('landingPage.hero.titleLine1')}</h2>
-                        <p className="text-lg text-gray-300">"{t('landingPage.hero.titleLine2')}"</p>
-                        <div className="mt-10 glass-panel p-6 rounded-2xl inline-block">
-                            <span className="text-2xl">🏙️</span>
-                        </div>
-                    </div>
+                    {/* Overlay content removed for cleaner look */}
                 </div>
 
                 {}

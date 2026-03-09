@@ -147,8 +147,8 @@ function HelpRequestDetails() {
 
                                 {}
                                 <div className="absolute top-4 left-4">
-                                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ring-1 backdrop-blur-md ${request.category === 'donation' ? 'bg-purple-500/15 text-purple-300 ring-purple-500/30' : 'bg-blue-500/15 text-blue-300 ring-blue-500/30'}`}>
-                                        <span className={`w-1.5 h-1.5 rounded-full mr-1.5 ${request.category === 'donation' ? 'bg-purple-400' : 'bg-blue-400'}`} />
+                                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ring-1 backdrop-blur-md ${request.category === 'donation' ? 'bg-purple-500/15 text-purple-300 ring-purple-500/30' : 'bg-teal-500/15 text-teal-300 ring-teal-500/30'}`}>
+                                        <span className={`w-1.5 h-1.5 rounded-full mr-1.5 ${request.category === 'donation' ? 'bg-purple-400' : 'bg-teal-400'}`} />
                                         {request.category.toUpperCase()}
                                     </span>
                                 </div>

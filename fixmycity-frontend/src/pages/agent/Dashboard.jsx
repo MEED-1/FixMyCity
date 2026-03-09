@@ -8,6 +8,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
 import DashboardLayout from '../../components/layout/DashboardLayout';
+import { useTranslation } from 'react-i18next';
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -17,6 +18,7 @@ L.Icon.Default.mergeOptions({
 });
 
 function AgentDashboard() {
+    const { t } = useTranslation();
     const [issues, setIssues] = useState([]);
     const [loading, setLoading] = useState(true);
     const [viewMode, setViewMode] = useState('list'); // 'list' or 'map'
@@ -89,15 +91,15 @@ function AgentDashboard() {
         <DashboardLayout>
             <div className="mb-8 flex justify-between items-center card-3d px-6 py-4">
                 <div>
-                    <h1 className="text-3xl font-bold gradient-text">Agent Dashboard</h1>
-                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Manage your assigned tasks</p>
+                    <h1 className="text-3xl font-bold gradient-text">{t('agentDashboard.title')}</h1>
+                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{t('agentDashboard.subtitle')}</p>
                 </div>
                 <div className="flex items-center card-3d px-4 py-3 bg-primary/10 border border-primary/20">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                     </svg>
                     <div>
-                        <p className="text-xs font-semibold text-primary uppercase tracking-wider">Assigned</p>
+                        <p className="text-xs font-semibold text-primary uppercase tracking-wider">{t('agentDashboard.assigned')}</p>
                         <p className="text-xl font-bold text-foreground leading-none">{issues.length}</p>
                     </div>
                 </div>
@@ -110,13 +112,13 @@ function AgentDashboard() {
                             onClick={() => setViewMode('list')}
                             className={`flex-1 sm:flex-none px-6 py-2 rounded-lg text-sm font-bold transition-all ${viewMode === 'list' ? 'bg-white dark:bg-slate-600 shadow-sm text-primary' : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'}`}
                         >
-                            List View
+                            {t('agentDashboard.listView')}
                         </button>
                         <button
                             onClick={() => setViewMode('map')}
                             className={`flex-1 sm:flex-none px-6 py-2 rounded-lg text-sm font-bold transition-all ${viewMode === 'map' ? 'bg-white dark:bg-slate-600 shadow-sm text-primary' : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'}`}
                         >
-                            Map View
+                            {t('agentDashboard.mapView')}
                         </button>
                     </div>
                 </div>
@@ -124,13 +126,13 @@ function AgentDashboard() {
                 {loading ? (
                     <div className="text-center py-20">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-                        <p className="mt-4 text-gray-500">Loading assignments...</p>
+                        <p className="mt-4 text-gray-500">{t('agentDashboard.loadingAssignments')}</p>
                     </div>
                 ) : issues.length === 0 ? (
                     <div className="text-center py-20 card-3d">
                         <div className="text-6xl mb-4">✅</div>
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">All caught up!</h3>
-                        <p className="text-gray-500 dark:text-gray-400 mt-2 font-medium">No issues currently assigned to you.</p>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white">{t('agentDashboard.allCaughtUp')}</h3>
+                        <p className="text-gray-500 dark:text-gray-400 mt-2 font-medium">{t('agentDashboard.noIssuesAssigned')}</p>
                     </div>
                 ) : viewMode === 'list' ? (
                     <div className="card-3d overflow-hidden">
@@ -138,11 +140,11 @@ function AgentDashboard() {
                             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead className="bg-gray-50 dark:bg-slate-800">
                                     <tr>
-                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Issue</th>
-                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
-                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Priority</th>
-                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Reported</th>
-                                        <th scope="col" className="relative px-6 py-4"><span className="sr-only">Actions</span></th>
+                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('agentDashboard.issue')}</th>
+                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('agentDashboard.status')}</th>
+                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('agentDashboard.priority')}</th>
+                                        <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('agentDashboard.reported')}</th>
+                                        <th scope="col" className="relative px-6 py-4"><span className="sr-only">{t('common.actions')}</span></th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white dark:bg-slate-900 divide-y divide-gray-200 dark:divide-gray-700">
@@ -191,7 +193,7 @@ function AgentDashboard() {
                                                             }}
                                                             className="text-primary hover:text-primary-foreground hover:bg-primary/90 px-3 py-1.5 rounded-lg font-bold transition-all border border-solid border-primary"
                                                         >
-                                                            Resolve
+                                                            {t('agentDashboard.resolve')}
                                                         </button>
                                                     )}
                                                     {issue.status === 'reported' && (
@@ -202,14 +204,14 @@ function AgentDashboard() {
                                                             }}
                                                             className="text-amber-600 hover:text-amber-900 dark:text-amber-500 dark:hover:text-amber-400 font-bold transition-colors"
                                                         >
-                                                            Start Work
+                                                            {t('agentDashboard.startWork')}
                                                         </button>
                                                     )}
                                                     {issue.status === 'in_progress' && (
-                                                        <span className="text-amber-600 dark:text-amber-500 font-medium text-xs px-2 py-1 bg-amber-50 dark:bg-amber-900/20 rounded-md">Working</span>
+                                                        <span className="text-amber-600 dark:text-amber-500 font-medium text-xs px-2 py-1 bg-amber-50 dark:bg-amber-900/20 rounded-md">{t('agentDashboard.working')}</span>
                                                     )}
                                                     <Link to={`/urban-issues/${issue.id || issue._id}`} className="text-gray-500 hover:text-foreground dark:text-gray-400 ml-2 transition-colors flex items-center gap-1 group">
-                                                        View
+                                                        {t('agentDashboard.viewDetails')}
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                                                     </Link>
                                                 </div>
@@ -243,7 +245,7 @@ function AgentDashboard() {
                                                     <h3 className="font-bold">{issue.title}</h3>
                                                     <p className="text-xs text-gray-500 mb-2">{issue.status}</p>
                                                     <Link to={`/urban-issues/${issue.id || issue._id}`} className="text-primary text-sm hover:underline font-bold">
-                                                        View Details
+                                                        {t('agentDashboard.viewDetails')}
                                                     </Link>
                                                 </div>
                                             </Popup>
@@ -261,15 +263,15 @@ function AgentDashboard() {
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-200">
                         <div className="p-6">
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Resolve Issue</h3>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('agentDashboard.resolveIssue')}</h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-                                Please provide photographic proof that this issue has been resolved. This is required to close the issue.
+                                {t('agentDashboard.resolveDescription')}
                             </p>
 
                             <form onSubmit={handleResolveSubmit}>
                                 <div className="mb-6">
                                     <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
-                                        Resolution Photo <span className="text-red-500">*</span>
+                                        {t('agentDashboard.resolutionPhoto')} <span className="text-red-500">*</span>
                                     </label>
                                     <input
                                         type="file"
@@ -280,7 +282,7 @@ function AgentDashboard() {
                                         required
                                     />
                                     {resolveFiles.length > 0 && (
-                                        <p className="mt-2 text-xs text-green-600 font-medium">{resolveFiles.length} file(s) selected</p>
+                                        <p className="mt-2 text-xs text-green-600 font-medium">{t('agentDashboard.filesSelected', { count: resolveFiles.length })}</p>
                                     )}
                                 </div>
 
@@ -291,14 +293,14 @@ function AgentDashboard() {
                                         disabled={isSubmitting}
                                         className="px-4 py-2 rounded-xl text-sm font-bold text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
                                     >
-                                        Cancel
+                                        {t('common.cancel')}
                                     </button>
                                     <button
                                         type="submit"
                                         disabled={isSubmitting || resolveFiles.length === 0}
                                         className="px-4 py-2 rounded-xl text-sm font-bold text-white bg-primary hover:bg-primary/90 disabled:opacity-50 transition-colors shadow-sm"
                                     >
-                                        {isSubmitting ? 'Uploading...' : 'Confirm Resolution'}
+                                        {isSubmitting ? t('agentDashboard.uploading') : t('agentDashboard.confirmResolution')}
                                     </button>
                                 </div>
                             </form>

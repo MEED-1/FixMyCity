@@ -6,7 +6,7 @@ use App\Models\UrbanIssue;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+
 
 class UrbanIssueController extends Controller
 {
@@ -88,26 +88,9 @@ class UrbanIssueController extends Controller
 
         $photoUrls = [];
         if ($request->hasFile('photos')) {
-            $url = env('CLOUDINARY_URL');
-            if ($url) {
-                $cleanUrl = str_replace('cloudinary://', '', $url);
-                list($auth, $cloud_name) = explode('@', $cleanUrl);
-                list($api_key, $api_secret) = explode(':', $auth);
-                
-                \Cloudinary\Configuration\Configuration::instance([
-                    'cloud' => [
-                        'cloud_name' => $cloud_name, 
-                        'api_key' => $api_key, 
-                        'api_secret' => $api_secret
-                    ],
-                    'url' => ['secure' => true]
-                ]);
-            }
-
             foreach ($request->file('photos') as $photo) {
                 try {
-                    $uploadApi = new \Cloudinary\Api\Upload\UploadApi();
-                    $result = $uploadApi->upload($photo->getRealPath(), [
+                    $result = cloudinary()->uploadApi()->upload($photo->getRealPath(), [
                         'folder' => 'fixmycity/issues'
                     ]);
                     $photoUrls[] = $result['secure_url'];
@@ -183,26 +166,9 @@ class UrbanIssueController extends Controller
 
         if ($request->hasFile('photos')) {
             $photoUrls = [];
-            $url = env('CLOUDINARY_URL');
-            if ($url) {
-                $cleanUrl = str_replace('cloudinary://', '', $url);
-                list($auth, $cloud_name) = explode('@', $cleanUrl);
-                list($api_key, $api_secret) = explode(':', $auth);
-                
-                \Cloudinary\Configuration\Configuration::instance([
-                    'cloud' => [
-                        'cloud_name' => $cloud_name, 
-                        'api_key' => $api_key, 
-                        'api_secret' => $api_secret
-                    ],
-                    'url' => ['secure' => true]
-                ]);
-            }
-
             foreach ($request->file('photos') as $photo) {
                 try {
-                    $uploadApi = new \Cloudinary\Api\Upload\UploadApi();
-                    $result = $uploadApi->upload($photo->getRealPath(), [
+                    $result = cloudinary()->uploadApi()->upload($photo->getRealPath(), [
                         'folder' => 'fixmycity/issues'
                     ]);
                     $photoUrls[] = $result['secure_url'];

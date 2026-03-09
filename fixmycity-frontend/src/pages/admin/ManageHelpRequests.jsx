@@ -11,6 +11,7 @@ import {
     TrashIcon,
     EyeIcon,
 } from '@heroicons/react/24/outline';
+import { useTranslation } from 'react-i18next';
 
 const VSTATUS_COLORS = {
     pending: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
@@ -19,12 +20,13 @@ const VSTATUS_COLORS = {
 };
 
 const CATEGORY_COLORS = {
-    volunteering: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+    volunteering: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300',
     donation: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
     other: 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300',
 };
 
 function ManageHelpRequests() {
+    const { t } = useTranslation();
     const [requests, setRequests] = useState([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState('all');
@@ -71,8 +73,8 @@ function ManageHelpRequests() {
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
                     <div>
-                        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Manage Help Requests</h1>
-                        <p className="text-gray-500 dark:text-gray-400">Oversee community volunteering and donations.</p>
+                        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{t('manageHelpRequests.title')}</h1>
+                        <p className="text-gray-500 dark:text-gray-400">{t('manageHelpRequests.subtitle')}</p>
                     </div>
 
                     <div className="w-full sm:w-56">
@@ -80,10 +82,10 @@ function ManageHelpRequests() {
                             value={filter}
                             onChange={(val) => setFilter(val)}
                             options={[
-                                { value: 'all', label: 'All Categories' },
-                                { value: 'volunteering', label: 'Volunteering' },
-                                { value: 'donation', label: 'Donation' },
-                                { value: 'other', label: 'Other' },
+                                { value: 'all', label: t('manageHelpRequests.allCategories') },
+                                { value: 'volunteering', label: t('manageHelpRequests.volunteering') },
+                                { value: 'donation', label: t('manageHelpRequests.donation') },
+                                { value: 'other', label: t('manageHelpRequests.other') },
                             ]}
                         />
                     </div>
@@ -96,7 +98,7 @@ function ManageHelpRequests() {
                 ) : requests.length === 0 ? (
                     <div className="text-center py-20 glass-panel rounded-2xl">
                         <div className="text-6xl mb-4">🤝</div>
-                        <h3 className="text-xl font-medium text-gray-900 dark:text-white">No requests found.</h3>
+                        <h3 className="text-xl font-medium text-gray-900 dark:text-white">{t('manageHelpRequests.noRequests')}</h3>
                     </div>
                 ) : (
                     <div className="card-3d overflow-hidden p-1">
@@ -104,16 +106,16 @@ function ManageHelpRequests() {
                             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                                 <thead className="bg-gray-50/80 dark:bg-slate-800/80 backdrop-blur-sm">
                                     <tr>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Title</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden sm:table-cell">Category</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Verification</th>
-                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden lg:table-cell">Posted by</th>
-                                        <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('manageHelpRequests.titleCol')}</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden sm:table-cell">{t('manageHelpRequests.category')}</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('manageHelpRequests.verification')}</th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider hidden lg:table-cell">{t('manageHelpRequests.postedBy')}</th>
+                                        <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">{t('common.actions')}</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white dark:bg-slate-800 divide-y divide-gray-200 dark:divide-gray-700">
                                     {requests.map((req) => (
-                                        <tr key={req._id || req.id} className="hover:bg-gray-50 dark:hover:bg-slate-700/30 transition-colors">
+                                        <tr key={req.id || req._id} className="hover:bg-gray-50 dark:hover:bg-slate-700/30 transition-colors">
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <Link
                                                     to={`/community-help/${req._id || req.id}`}
@@ -129,12 +131,12 @@ function ManageHelpRequests() {
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap hidden sm:table-cell">
                                                 <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${CATEGORY_COLORS[req.category] || CATEGORY_COLORS.other}`}>
-                                                    {req.category}
+                                                    {t(`manageHelpRequests.category_${req.category}`, req.category)}
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${VSTATUS_COLORS[req.verification_status] || VSTATUS_COLORS.pending}`}>
-                                                    {req.verification_status || 'pending'}
+                                                    {t(`manageHelpRequests.status_${req.verification_status || 'pending'}`)}
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 hidden lg:table-cell">
@@ -190,14 +192,14 @@ function ManageHelpRequests() {
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
                     <div className="bg-white dark:bg-surface rounded-2xl shadow-2xl w-full max-w-sm border border-gray-200 dark:border-gray-700 p-6 text-center">
                         <TrashIcon className="w-12 h-12 mx-auto text-red-500 mb-4" />
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Delete Help Request?</h3>
-                        <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">This action cannot be undone.</p>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{t('manageHelpRequests.deleteRequest')}</h3>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">{t('common.actionCannotBeUndone')}</p>
                         <div className="flex gap-3">
                             <button onClick={() => setDeleteId(null)} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
-                                Cancel
+                                {t('common.cancel')}
                             </button>
                             <button onClick={handleDelete} className="flex-1 py-2.5 rounded-xl bg-red-500 text-white font-medium shadow-lg shadow-red-500/25 hover:bg-red-600 transition-all">
-                                Delete
+                                {t('common.delete')}
                             </button>
                         </div>
                     </div>

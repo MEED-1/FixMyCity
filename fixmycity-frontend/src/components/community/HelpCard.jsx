@@ -7,7 +7,10 @@ import DonationModal from '../payment/DonationModal';
 import TranslateButton from '../common/TranslateButton';
 import { useTranslateContent } from '../../hooks/useTranslateContent';
 
-function HelpCard({ request, isOwner }) {
+import { useTranslation } from 'react-i18next';
+
+function HelpCard({ request, isOwner, onDelete }) {
+    const { t } = useTranslation();
     const { user, isAuthenticated } = useAuthStore();
     const isAdmin = user?.role === 'admin';
     const actualIsOwner = isOwner || (isAuthenticated && user?.id && (request.user_id === user.id || request.user?.id === user.id));
@@ -39,11 +42,13 @@ function HelpCard({ request, isOwner }) {
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        if (!window.confirm('Delete this request?')) return;
+        if (!window.confirm(t('community.confirmDelete'))) return;
         try {
-            toast.info('Delete functionality to be implemented');
+            await helpService.delete(request._id || request.id);
+            toast.success(t('community.deleteSuccess'));
+            if (onDelete) onDelete(request._id || request.id);
         } catch (error) {
-            toast.error('Failed to delete');
+            toast.error(t('community.deleteFailed'));
         }
     };
 
@@ -61,22 +66,22 @@ function HelpCard({ request, isOwner }) {
                         />
                     ) : (
                         <div className="flex items-center justify-center h-full text-muted-foreground bg-muted">
-                            <span className="text-[10px] font-semibold tracking-widest uppercase opacity-40">No Image</span>
+                            <span className="text-[10px] font-semibold tracking-widest uppercase opacity-40">{t('common.noImage')}</span>
                         </div>
                     )}
 
                     {}
                     <div className="absolute top-2.5 right-2.5 flex flex-col items-end gap-2">
-                        <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold backdrop-blur-md bg-white/80 dark:bg-black/60 shadow-sm ${request.category === 'donation' ? 'text-purple-600' : 'text-blue-600'
+                        <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold backdrop-blur-md bg-white/80 dark:bg-black/60 shadow-sm ${request.category === 'donation' ? 'text-purple-600' : 'text-teal-600'
                             }`}>
-                            <span className={`w-1.5 h-1.5 rounded-full mr-1 ${request.category === 'donation' ? 'bg-purple-500' : 'bg-blue-500'
+                            <span className={`w-1.5 h-1.5 rounded-full mr-1 ${request.category === 'donation' ? 'bg-purple-500' : 'bg-teal-500'
                                 }`} />
-                            {request.category}
+                            {t(`community.${request.category}`, request.category)}
                         </span>
 
                         {isActivelyBoosted && (
                             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500 text-white shadow-md animate-pulse">
-                                {getBoostBadge(request.current_boost_level)} Boosted
+                                {getBoostBadge(request.current_boost_level)} {t('common.boosted')}
                             </span>
                         )}
                     </div>
@@ -103,8 +108,8 @@ function HelpCard({ request, isOwner }) {
                     {request.category === 'donation' ? (
                         <div className="mt-auto mb-3 bg-muted rounded-xl p-3">
                             <div className="flex justify-between text-xs font-semibold mb-2">
-                                <span className="text-foreground">${request.current_amount || 0} raised</span>
-                                <span className="text-muted-foreground">Goal: ${request.target_amount}</span>
+                                <span className="text-foreground">{t('community.raised', { current: request.current_amount || 0 })}</span>
+                                <span className="text-muted-foreground">{t('community.goal', { target: request.target_amount })}</span>
                             </div>
                             <div className="w-full bg-border rounded-full h-1.5">
                                 <div
@@ -115,23 +120,23 @@ function HelpCard({ request, isOwner }) {
                         </div>
                     ) : (
                         <div className="mt-auto mb-3 flex items-center justify-between bg-muted rounded-xl p-3">
-                            <span className="text-xs font-semibold text-foreground">Volunteer</span>
-                            <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Nearby</span>
+                            <span className="text-xs font-semibold text-foreground">{t('community.volunteer')}</span>
+                            <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{t('common.nearby')}</span>
                         </div>
                     )}
 
                     {}
                     {isAdmin ? (
                         <button onClick={handleDelete} className="w-full py-2 bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 font-semibold rounded-xl hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors text-xs">
-                            Delete
+                            {t('common.delete')}
                         </button>
                     ) : actualIsOwner ? (
                         <div className="flex gap-2">
                             <Link to={`/community-help/edit/${request.id}`} className="flex-1 py-2 bg-amber-50 text-amber-600 dark:bg-amber-500/10 dark:text-amber-400 font-semibold rounded-xl hover:bg-amber-100 dark:hover:bg-amber-500/20 transition-colors text-xs text-center flex items-center justify-center">
-                                Edit
+                                {t('common.edit')}
                             </Link>
                             <button onClick={handleDelete} className="flex-1 py-2 bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 font-semibold rounded-xl hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors text-xs flex items-center justify-center">
-                                Delete
+                                {t('common.delete')}
                             </button>
                         </div>
                     ) : request.category === 'donation' ? (
@@ -143,7 +148,7 @@ function HelpCard({ request, isOwner }) {
                             disabled={!isApproved}
                             className={`w-full py-2 font-semibold rounded-xl transition-opacity text-xs ${!isApproved ? 'bg-muted text-muted-foreground cursor-not-allowed' : 'bg-primary text-primary-foreground hover:opacity-90'}`}
                         >
-                            {!isApproved ? 'Pending Approval' : 'Donate Now'}
+                            {!isApproved ? t('common.status.pendingApproval') : t('community.donateShort')}
                         </button>
                     ) : (
                         <button
@@ -153,7 +158,7 @@ function HelpCard({ request, isOwner }) {
                             }}
                             className={`w-full py-2 font-semibold rounded-xl transition-opacity text-xs text-center items-center justify-center flex ${!isApproved ? 'bg-muted text-muted-foreground cursor-not-allowed' : 'bg-primary text-primary-foreground hover:opacity-90'}`}
                         >
-                            {!isApproved ? 'Pending Approval' : 'Volunteer'}
+                            {!isApproved ? t('common.status.pendingApproval') : t('community.volunteer')}
                         </button>
                     )}
                 </div>

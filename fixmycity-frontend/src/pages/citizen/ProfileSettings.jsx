@@ -10,18 +10,16 @@ import {
     PencilSquareIcon,
     TrashIcon,
     CameraIcon,
-    EyeIcon,
-    EyeSlashIcon,
 } from '@heroicons/react/24/outline';
+import { useTranslation } from 'react-i18next';
 
 const TABS = [
-    { id: 'personal', label: 'Personal Info', icon: UserCircleIcon },
-    { id: 'password', label: 'Password', icon: LockClosedIcon },
-    { id: 'notifications', label: 'Notifications', icon: BellIcon },
+    { id: 'personal', label: 'profile.personalInfo', icon: UserCircleIcon },
 ];
 
 function ProfileSettings() {
     const { user, updateProfile, updateProfilePicture, deleteProfilePicture, deleteAccount, loading } = useAuthStore();
+    const { t } = useTranslation();
     const fileInputRef = useRef(null);
     const [activeTab, setActiveTab] = useState('personal');
     const [municipalities, setMunicipalities] = useState([]);
@@ -45,34 +43,13 @@ function ProfileSettings() {
         fetchMunicipalities();
     }, []);
 
-    const [passwordData, setPasswordData] = useState({
-        current: '',
-        new: '',
-        confirm: '',
-    });
-    const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-    const [showNewPassword, setShowNewPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [notifSettings, setNotifSettings] = useState({
-        issueUpdates: true,
-        communityAlerts: true,
-        donations: false,
-        newsletter: false,
-    });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const handlePasswordChange = (e) => {
-        const { name, value } = e.target;
-        setPasswordData({ ...passwordData, [name]: value });
-    };
 
-    const handleNotifToggle = (key) => {
-        setNotifSettings({ ...notifSettings, [key]: !notifSettings[key] });
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -124,15 +101,7 @@ function ProfileSettings() {
         }
     };
 
-    const handlePasswordSubmit = (e) => {
-        e.preventDefault();
-        if (passwordData.new !== passwordData.confirm) {
-            toast.error("Passwords don't match!");
-            return;
-        }
-        toast.success("Password changed successfully!");
-        setPasswordData({ current: '', new: '', confirm: '' });
-    };
+
 
     const renderPersonalInfo = () => (
         <form onSubmit={handleSubmit} className="space-y-8">
@@ -178,7 +147,7 @@ function ProfileSettings() {
                             className="btn-primary-3d px-4 py-2 text-xs"
                             disabled={loading}
                         >
-                            Change Picture
+                            {t('profile.changePicture')}
                         </button>
                         {user?.avatar_url && (
                             <button
@@ -187,7 +156,7 @@ function ProfileSettings() {
                                 className="px-4 py-2 text-xs font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-xl transition-colors"
                                 disabled={loading}
                             >
-                                Remove
+                                {t('profile.remove')}
                             </button>
                         )}
                     </div>
@@ -195,10 +164,10 @@ function ProfileSettings() {
             </div>
 
             <div className="space-y-5">
-                <h4 className="text-base font-semibold text-foreground">Personal Information</h4>
+                <h4 className="text-base font-semibold text-foreground">{t('profile.personalInfo')}</h4>
 
                 <div className="relative">
-                    <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Full Name</label>
+                    <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">{t('profile.fullName')}</label>
                     <div className="relative">
                         <input
                             type="text"
@@ -212,7 +181,7 @@ function ProfileSettings() {
                 </div>
 
                 <div className="relative">
-                    <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Email Address</label>
+                    <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">{t('profile.emailAddress')}</label>
                     <div className="relative">
                         <input
                             type="email"
@@ -226,7 +195,7 @@ function ProfileSettings() {
                 </div>
 
                 <div className="relative">
-                    <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Phone Number</label>
+                    <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">{t('profile.phoneNumber')}</label>
                     <div className="relative">
                         <input
                             type="tel"
@@ -241,7 +210,7 @@ function ProfileSettings() {
                 </div>
 
                 <div className="relative">
-                    <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Municipality</label>
+                    <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">{t('profile.municipality')}</label>
                     <div className="relative">
                         <select
                             name="municipality"
@@ -249,7 +218,7 @@ function ProfileSettings() {
                             onChange={handleChange}
                             className="input-3d pr-10 appearance-none"
                         >
-                            <option value="">Select Municipality</option>
+                            <option value="">{t('profile.selectMunicipality')}</option>
                             {municipalities.map(m => (
                                 <option key={m} value={m}>{m}</option>
                             ))}
@@ -260,15 +229,15 @@ function ProfileSettings() {
 
             <div className="flex justify-end pt-2">
                 <button type="submit" disabled={loading} className="btn-primary-3d px-8 py-2.5 disabled:opacity-50">
-                    {loading ? 'Updating...' : 'Update'}
+                    {loading ? t('profile.updating') : t('profile.update')}
                 </button>
             </div>
 
             { }
             <div className="mt-12 pt-8 border-t border-border">
-                <h4 className="text-base font-semibold text-red-600 dark:text-red-400 mb-2">Danger Zone</h4>
+                <h4 className="text-base font-semibold text-red-600 dark:text-red-400 mb-2">{t('profile.dangerZone')}</h4>
                 <p className="text-sm text-muted-foreground mb-4">
-                    Once you delete your account, there is no going back. Please be certain.
+                    {t('profile.dangerZoneText')}
                 </p>
                 <button
                     type="button"
@@ -276,138 +245,12 @@ function ProfileSettings() {
                     disabled={loading}
                     className="px-6 py-2.5 text-sm font-semibold rounded-xl bg-red-50 text-red-600 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-400 dark:hover:bg-red-900/40 transition-colors border border-red-200 dark:border-red-900/50 disabled:opacity-50"
                 >
-                    Delete Account
+                    {t('profile.deleteAccount')}
                 </button>
             </div>
         </form>
     );
 
-    const renderPassword = () => (
-        <form onSubmit={handlePasswordSubmit} className="space-y-6">
-            <h4 className="text-base font-semibold text-foreground">Change Password</h4>
-            <p className="text-sm text-muted-foreground">Ensure your account is using a strong, unique password.</p>
-
-            <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Current Password</label>
-                <div className="relative">
-                    <input
-                        type={showCurrentPassword ? "text" : "password"}
-                        name="current"
-                        value={passwordData.current}
-                        onChange={handlePasswordChange}
-                        className="input-3d pe-10"
-                        placeholder="••••••••"
-                    />
-                    <button
-                        type="button"
-                        className="absolute inset-y-0 end-0 pe-3 flex items-center text-gray-400 hover:text-gray-500"
-                        onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                    >
-                        {showCurrentPassword ? (
-                            <EyeSlashIcon className="h-5 w-5" aria-hidden="true" />
-                        ) : (
-                            <EyeIcon className="h-5 w-5" aria-hidden="true" />
-                        )}
-                    </button>
-                </div>
-            </div>
-
-            <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">New Password</label>
-                <div className="relative">
-                    <input
-                        type={showNewPassword ? "text" : "password"}
-                        name="new"
-                        value={passwordData.new}
-                        onChange={handlePasswordChange}
-                        className="input-3d pe-10"
-                        placeholder="••••••••"
-                    />
-                    <button
-                        type="button"
-                        className="absolute inset-y-0 end-0 pe-3 flex items-center text-gray-400 hover:text-gray-500"
-                        onClick={() => setShowNewPassword(!showNewPassword)}
-                    >
-                        {showNewPassword ? (
-                            <EyeSlashIcon className="h-5 w-5" aria-hidden="true" />
-                        ) : (
-                            <EyeIcon className="h-5 w-5" aria-hidden="true" />
-                        )}
-                    </button>
-                </div>
-            </div>
-
-            <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Confirm New Password</label>
-                <div className="relative">
-                    <input
-                        type={showConfirmPassword ? "text" : "password"}
-                        name="confirm"
-                        value={passwordData.confirm}
-                        onChange={handlePasswordChange}
-                        className="input-3d pe-10"
-                        placeholder="••••••••"
-                    />
-                    <button
-                        type="button"
-                        className="absolute inset-y-0 end-0 pe-3 flex items-center text-gray-400 hover:text-gray-500"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    >
-                        {showConfirmPassword ? (
-                            <EyeSlashIcon className="h-5 w-5" aria-hidden="true" />
-                        ) : (
-                            <EyeIcon className="h-5 w-5" aria-hidden="true" />
-                        )}
-                    </button>
-                </div>
-            </div>
-
-            <div className="flex justify-end pt-2">
-                <button type="submit" className="btn-primary-3d px-8 py-2.5">
-                    Change Password
-                </button>
-            </div>
-        </form>
-    );
-
-    const renderNotifications = () => (
-        <div className="space-y-6">
-            <div>
-                <h4 className="text-base font-semibold text-foreground">Notification Preferences</h4>
-                <p className="text-sm text-muted-foreground mt-1">Choose what you want to be notified about.</p>
-            </div>
-
-            <div className="space-y-1">
-                {[
-                    { key: 'issueUpdates', label: 'Issue Updates', desc: 'Get notified when your reported issues are updated' },
-                    { key: 'communityAlerts', label: 'Community Alerts', desc: 'Receive alerts about community help requests nearby' },
-                    { key: 'donations', label: 'Donation Activity', desc: 'Get notified about donations to your causes' },
-                    { key: 'newsletter', label: 'Weekly Newsletter', desc: 'Receive a weekly summary of city improvements' },
-                ].map((item) => (
-                    <div
-                        key={item.key}
-                        className="flex items-center justify-between p-4 rounded-xl hover:bg-muted/50 transition-colors"
-                    >
-                        <div>
-                            <p className="text-sm font-medium text-foreground">{item.label}</p>
-                            <p className="text-xs text-muted-foreground">{item.desc}</p>
-                        </div>
-                        <button
-                            type="button"
-                            onClick={() => handleNotifToggle(item.key)}
-                            className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${notifSettings[item.key] ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-600'
-                                }`}
-                        >
-                            <span
-                                className={`pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform duration-300 ease-in-out transform ${notifSettings[item.key] ? 'translate-x-5' : 'translate-x-0.5'
-                                    } mt-0.5`}
-                            />
-                        </button>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
 
     return (
         <DashboardLayout>
@@ -428,7 +271,7 @@ function ProfileSettings() {
                                         }`}
                                 >
                                     <tab.icon className="w-5 h-5" />
-                                    {tab.label}
+                                    {t(tab.label)}
                                 </button>
                             ))}
                         </nav>
@@ -437,7 +280,7 @@ function ProfileSettings() {
                         <div className="mt-8 pt-6 border-t border-border">
                             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all duration-200">
                                 <TrashIcon className="w-5 h-5" />
-                                Delete Account
+                                {t('profile.deleteAccount')}
                             </button>
                         </div>
                     </div>
@@ -446,8 +289,6 @@ function ProfileSettings() {
                     <div className="flex-1">
                         <div className="card-3d p-6 sm:p-8">
                             {activeTab === 'personal' && renderPersonalInfo()}
-                            {activeTab === 'password' && renderPassword()}
-                            {activeTab === 'notifications' && renderNotifications()}
                         </div>
                     </div>
                 </div>

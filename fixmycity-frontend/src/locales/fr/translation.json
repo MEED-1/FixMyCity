@@ -6,60 +6,37 @@
     "signup": "S'inscrire",
     "logout": "Déconnexion",
     "browseIssues": "Parcourir les problèmes",
-    "communityHelp": "Entraide",
+    "communityHelp": "Aide communautaire",
     "about": "À propos",
     "signedInAs": "Connecté en tant que"
   },
-  "auth": {
-    "or": "Ou",
-    "createAccount": "créer un nouveau compte",
-    "alreadyAccount": "Vous avez déjà un compte ?",
-    "signIn": "Se connecter",
-    "email": "Adresse e-mail",
-    "password": "Mot de passe",
-    "fullName": "Nom complet",
-    "phone": "Numéro de téléphone",
-    "signingIn": "Connexion...",
-    "creatingAccount": "Création de compte...",
-    "loginFailed": "Échec de la connexion",
-    "registrationFailed": "Échec de l'inscription",
-    "joinCommunity": "Rejoignez la communauté",
-    "feature1": "Signalez des problèmes en quelques secondes",
-    "feature2": "Connectez-vous avec vos voisins",
-    "feature3": "Gagnez des récompenses pour votre impact"
-  },
   "sidebar": {
-    "dashboard": "Tableau de bord",
-    "myIssues": "Mes signalements",
+    "dashboard": "Aperçu",
+    "myIssues": "Mes Signalements",
     "reportIssue": "Signaler un problème",
     "myHelp": "Mes demandes d'aide",
-    "myHelpRequests": "Mes demandes d'aide",
-    "myDonations": "Mes dons",
-    "myBoosts": "Mes boosts",
-    "notifications": "Notifications",
+    "reports": "Rapports mensuels",
     "profile": "Profil",
-    "browseRequests": "Parcourir les demandes",
-    "communityHelp": "Entraide",
-    "settings": "Paramètres",
+    "notifications": "Notifications",
     "logout": "Déconnexion"
   },
   "reportIssue": {
     "title": "Signaler un problème",
-    "subtitle": "Aidez-nous à améliorer la ville en signalant les problèmes de votre quartier.",
+    "subtitle": "Aidez-nous à améliorer la ville en signalant les problèmes dans votre quartier.",
     "form": {
       "title": "Titre du problème",
-      "titlePlaceholder": "ex: Nid de poule sur la rue principale",
+      "titlePlaceholder": "ex: Nid-de-poule sur la rue principale",
       "description": "Description",
       "descriptionPlaceholder": "Décrivez le problème en détail...",
       "category": "Catégorie",
       "priority": "Niveau de priorité",
-      "location": "Emplacement (Cliquez sur la carte)",
+      "location": "Localisation (Cliquez sur la carte)",
       "photos": "Photos",
       "uploadText": "Télécharger des fichiers",
       "dragDrop": "ou glisser-déposer",
       "cancel": "Annuler",
-      "submit": "Soumettre",
-      "submitting": "Envoi..."
+      "submit": "Envoyer le signalement",
+      "submitting": "Envoi en cours..."
     },
     "categories": {
       "infrastructure": "Infrastructure",
@@ -72,35 +49,37 @@
       "other": "Autre"
     },
     "priorities": {
-      "low": "Faible",
+      "low": "Basse",
       "medium": "Moyenne",
-      "high": "Élevée",
+      "high": "Haute",
       "critical": "Critique"
     }
   },
   "dashboard": {
     "welcome": "Bon retour",
     "subtext": "Voici ce qui se passe dans votre ville aujourd'hui.",
-    "myReports": "Mes signalements",
-    "allReports": "Tous les signalements",
+    "myReports": "Mes Signalements",
+    "allReports": "Tous les Signalements",
     "listView": "Vue liste",
     "mapView": "Vue carte",
+    "cityMap": "Carte de la ville en direct",
+    "personalSummary": "Résumé personnel",
     "stats": {
-      "issuesReported": "Problèmes signalés",
+      "issuesReported": "Signalements effectués",
       "activeRequests": "Demandes actives",
-      "totalDonated": "Total des dons",
+      "totalDonated": "Total donné",
       "activeBoosts": "Boosts actifs"
     },
     "quickActions": {
       "title": "Actions rapides",
-      "reportIssue": "Signaler un problème",
+      "reportIssue": "Signaler un nouveau problème",
       "createRequest": "Créer une demande",
       "viewMap": "Voir la carte",
       "browseRequests": "Parcourir les demandes"
     },
     "recentActivity": {
       "title": "Activité récente",
-      "viewAll": "Voir tout"
+      "viewAll": "Tout voir"
     },
     "nearbyIssues": {
       "title": "Problèmes à proximité",
@@ -115,34 +94,51 @@
     }
   },
   "issues": {
-    "browseTitle": "Parcourir les problèmes",
-    "browseSubtitle": "Découvrez ce qui se passe dans votre ville",
-    "noIssues": "Aucun problème trouvé pour ce filtre."
+    "browseTitle": "Parcourir les problèmes urbains",
+    "browseSubtitle": "Voyez ce qui se passe dans votre ville",
+    "noIssues": "Aucun problème trouvé correspondant à votre filtre.",
+    "sort": {
+      "latest": "Plus récents d'abord",
+      "upvotes": "Plus votés"
+    },
+    "category": {
+      "all": "Toutes les catégories"
+    },
+    "municipality": {
+      "all": "Toutes les municipalités"
+    },
+    "status": {
+      "reported": "Signalé",
+      "approved": "Approuvé",
+      "in_progress": "En cours",
+      "resolved": "Résolu",
+      "rejected": "Rejeté"
+    }
   },
   "about": {
     "title": "À propos de FixMyCity",
-    "subtitle": "Donner le pouvoir aux citoyens",
-    "description": "Nous comblons le fossé entre les citoyens et l'administration locale pour construire de meilleures villes ensemble.",
+    "subtitle": "Autonomiser les citoyens",
+    "description": "Nous comblons le fossé entre les citoyens et l'administration locale pour construire ensemble de meilleures villes.",
     "missionTitle": "Notre Mission",
     "missionText": "Fournir une plateforme transparente, efficace et collaborative pour signaler et résoudre les problèmes urbains. Nous croyons au pouvoir de l'engagement communautaire.",
     "stat1": "Villes",
     "stat2": "Problèmes Résolus"
   },
   "landing": {
-    "heroTitle": "Améliorons la ville, ensemble",
+    "heroTitle": "Rendre votre ville meilleure, ensemble",
     "heroSubtitle": "Signalez des problèmes, suivez les progrès et améliorez votre quartier avec FixMyCity.",
     "getStarted": "Commencer",
     "features": "Fonctionnalités"
   },
   "donation": {
-    "title": "Faire un don à \"{{title}}\"",
+    "title": "Donner à \"{{title}}\"",
     "subtitle": "Votre contribution fait la différence. 100% va au bénéficiaire.",
     "amountLabel": "Montant (DH)",
     "messageLabel": "Message (Optionnel)",
-    "messagePlaceholder": "Ajouter un mot de soutien...",
+    "messagePlaceholder": "Ajoutez un mot de soutien...",
     "anonymousLabel": "Faire un don anonyme",
     "submitBtn": "Donner {{amount}} DH",
-    "processing": "Traitement...",
+    "processing": "Traitement en cours...",
     "cancel": "Annuler",
     "minAmountError": "Le don minimum est de 10 DH",
     "error": "Échec de l'initialisation du don"
@@ -153,7 +149,7 @@
     "markAllRead": "Tout marquer comme lu",
     "markAsRead": "Marquer comme lu",
     "delete": "Supprimer",
-    "emptyState": "Aucune notification",
+    "emptyState": "Pas de notifications",
     "emptyStateSub": "Vous êtes à jour !",
     "success": "Toutes les notifications marquées comme lues",
     "removed": "Notification supprimée"
@@ -165,22 +161,362 @@
     "noRequestsSub": "Besoin d'un coup de main ? Demandez à la communauté !",
     "backToFeed": "Retour au flux communautaire",
     "details": "Détails",
-    "postedBy": "Publié par {{name}} le {{date}}",
+    "postedBy": "Posté par {{name}} le {{date}}",
     "description": "Description",
-    "progress": "Progrès de la collecte",
-    "raised": "{{current}} collectés",
-    "goal": "Objectif : {{target}}",
-    "location": "Emplacement",
-    "donateBtn": "Faire un don maintenant 💖",
+    "progress": "Progrès de la collecte de fonds",
+    "raised": "{{current}} récoltés",
+    "raisedShort": "{{amount}} récoltés",
+    "goal": "Objectif: {{target}}",
+    "goalShort": "Objectif: {{amount}}",
+    "location": "Localisation",
+    "donateBtn": "Donner maintenant 💖",
     "volunteerBtn": "Se porter volontaire",
-    "volunteerToast": "Messagerie des bénévoles bientôt disponible !",
-    "notFound": "Demande non trouvée"
+    "volunteerToast": "La messagerie des bénévoles arrive bientôt !",
+    "notFound": "Demande non trouvée",
+    "confirmDelete": "Êtes-vous sûr de vouloir supprimer cette demande d'aide ?",
+    "deleteSuccess": "Demande supprimée avec succès",
+    "deleteFailed": "Échec de la suppression de la demande",
+    "volunteer": "Bénévole",
+    "donateShort": "Donner maintenant",
+    "status": {
+      "pending": "En attente",
+      "approved": "Approuvé",
+      "rejected": "Rejeté"
+    }
+  },
+  "auth": {
+    "or": "Ou",
+    "createAccount": "créer un nouveau compte",
+    "alreadyAccount": "Vous avez déjà un compte ?",
+    "signIn": "Se connecter",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "fullName": "Nom complet",
+    "phone": "Numéro de téléphone",
+    "signingIn": "Connexion en cours...",
+    "creatingAccount": "Création du compte en cours...",
+    "loginFailed": "Échec de la connexion",
+    "registrationFailed": "Échec de l'inscription",
+    "joinCommunity": "Rejoignez la communauté",
+    "feature1": "Signalez des problèmes en quelques secondes",
+    "feature2": "Connectez-vous avec vos voisins",
+    "feature3": "Gagnez des récompenses pour votre impact"
+  },
+  "header": {
+    "issuesList": "Liste des problèmes",
+    "communityHelp": "Aide communautaire",
+    "aboutUs": "À propos de nous"
+  },
+  "admin": {
+    "dashboard": "Tableau de bord Admin",
+    "allIssues": "Tous les Problèmes",
+    "transactions": "Transactions",
+    "users": "Utilisateurs",
+    "categories": "Catégories",
+    "municipalities": "Municipalités",
+    "helpRequests": "Demandes d'aide"
+  },
+  "issueDetails": {
+    "back": "Retour",
+    "description": "Description",
+    "deleteIssue": "Supprimer le problème",
+    "boost": "Booster",
+    "anonymous": "Anonyme",
+    "comments": "Commentaires",
+    "noComments": "Pas encore de commentaires. Soyez le premier à discuter de ce problème.",
+    "addComment": "Ajouter un commentaire...",
+    "posting": "Publication en cours...",
+    "postComment": "Publier le commentaire",
+    "loginToUpvote": "Veuillez vous connecter pour voter.",
+    "loginToBoost": "Veuillez vous connecter pour booster.",
+    "upvoted": "Voté !",
+    "failedUpvote": "Échec du vote",
+    "failedLoad": "Échec du chargement des détails",
+    "failedDelete": "Échec de la suppression",
+    "failedToResolve": "Échec de la résolution",
+    "failedComment": "Échec de la publication du commentaire",
+    "commentAdded": "Commentaire ajouté !",
+    "postedOn": "Posté le",
+    "user": "Utilisateur",
+    "selectPhotosToResolve": "Veuillez sélectionner au moins une photo pour marquer comme résolu.",
+    "markedResolved": "Problème marqué comme résolu !",
+    "resolvedPictures": "Photos de résolution",
+    "markResolved": "Marquer comme résolu",
+    "uploadProof": "Téléchargez des photos de preuve de résolution.",
+    "resolveIssueBtn": "Résoudre et télécharger"
+  },
+  "issueCard": {
+    "upvotes": "Votes",
+    "boost": "Booster",
+    "upvote": "Voter",
+    "delete": "Supprimer",
+    "noImage": "Sans Image",
+    "loginRequired": "Connexion requise."
+  },
+  "translate": {
+    "translate": "Traduire",
+    "showOriginal": "Texte original",
+    "translating": "Traduction en cours...",
+    "failed": "Échec de la traduction"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "noResults": "Aucun résultat",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "actions": "Actions",
+    "view": "Voir",
+    "edit": "Modifier",
+    "confirm": "Confirmer",
+    "actionCannotBeUndone": "Cette action ne peut pas être annulée.",
+    "noImage": "Sans Image",
+    "boosted": "Boosté",
+    "nearby": "À proximité",
+    "unknown": "Inconnu",
+    "roles": {
+      "citizen": "Citoyen",
+      "agent": "Agent",
+      "admin": "Admin"
+    },
+    "status": {
+      "pendingApproval": "En attente d'approbation",
+      "approved": "Approuvé",
+      "inProgress": "En cours",
+      "resolved": "Résolu",
+      "rejected": "Rejeté"
+    }
+  },
+  "adminDashboard": {
+    "title": "Tableau de bord Admin",
+    "subtitle": "Aperçu et gestion de la plateforme",
+    "totalUsers": "Total Utilisateurs",
+    "totalIssues": "Total Problèmes",
+    "pendingIssues": "Problèmes en attente",
+    "helpRequests": "Demandes d'aide",
+    "citizensAgents": "Citoyens & Agents",
+    "reportsFiled": "Signalements effectués",
+    "awaitingAction": "En attente d'action",
+    "communityRequests": "Demandes communautaires",
+    "loadingStats": "Chargement des statistiques...",
+    "failedStats": "Échec du chargement des statistiques"
+  },
+  "manageIssues": {
+    "title": "Gérer les Problèmes",
+    "subtitle": "Surveiller et modérer les problèmes signalés.",
+    "issue": "Problème",
+    "category": "Catégorie",
+    "status": "Statut",
+    "reporter": "Signaleur",
+    "noIssues": "Aucun problème trouvé.",
+    "deleteIssue": "Supprimer le problème ?",
+    "allStatuses": "Tous les statuts",
+    "reported": "Signalé",
+    "approved": "Approuvé",
+    "inProgress": "En cours",
+    "resolved": "Résolu",
+    "rejected": "Rejeté"
+  },
+  "manageUsers": {
+    "title": "Gérer les Utilisateurs",
+    "subtitle": "Voir, gérer les rôles et modérer les utilisateurs.",
+    "user": "Utilisateur",
+    "email": "E-mail",
+    "role": "Rôle",
+    "municipality": "Municipalité",
+    "noUsers": "Aucun utilisateur trouvé.",
+    "deleteUser": "Supprimer l'utilisateur ?",
+    "allRoles": "Tous les rôles",
+    "citizen": "Citoyen",
+    "agent": "Agent",
+    "admin": "Admin",
+    "assignMunicipality": "Assigner Municipalité",
+    "selectMunicipality": "Sélectionner Municipalité",
+    "noUsersFoundMatchingFilter": "Aucun utilisateur trouvé correspondant au filtre.",
+    "roleUpdated": "Rôle mis à jour",
+    "updateRoleFailed": "Échec de la mise à jour du rôle",
+    "userDeleted": "Utilisateur supprimé",
+    "deleteUserFailed": "Échec de la suppression de l'utilisateur",
+    "fetchUsersFailed": "Échec de la récupération des utilisateurs"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "subtitle": "Surveiller les paiements et l'activité financière.",
+    "date": "Date",
+    "user": "Utilisateur",
+    "type": "Type",
+    "amount": "Montant",
+    "status": "Statut",
+    "noTransactions": "Aucune transaction trouvée.",
+    "fetchFailed": "Échec de la récupération des transactions"
+  },
+  "manageCategories": {
+    "title": "Gérer les Catégories",
+    "subtitle": "Créer et gérer les catégories de problèmes.",
+    "addCategory": "Ajouter une catégorie",
+    "editCategory": "Modifier la catégorie",
+    "newCategory": "Nouvelle catégorie",
+    "name": "Nom",
+    "type": "Type",
+    "icon": "Icône (emoji ou nom)",
+    "iconLabel": "Icône (emoji ou nom)",
+    "color": "Couleur",
+    "status": "Statut",
+    "noCategories": "Pas encore de catégories",
+    "noCategoriesSub": "Cliquez sur \"Ajouter une catégorie\" pour créer la première.",
+    "deleteCategory": "Supprimer la catégorie ?",
+    "createCategory": "Créer la catégorie",
+    "updateCategory": "Mettre à jour la catégorie",
+    "fetchFailed": "Échec du chargement des catégories",
+    "categoryUpdated": "Catégorie mise à jour",
+    "categoryCreated": "Catégorie créée",
+    "categoryDeleted": "Catégorie supprimée",
+    "saveFailed": "Échec de l'enregistrement",
+    "deleteFailed": "Échec de la suppression"
+  },
+  "manageMunicipalities": {
+    "title": "Gérer les Municipalités",
+    "subtitle": "Créer et gérer les zones municipales.",
+    "addMunicipality": "Ajouter une municipalité",
+    "editMunicipality": "Modifier la municipalité",
+    "newMunicipality": "Nouvelle municipalité",
+    "name": "Nom",
+    "code": "Code",
+    "region": "Région",
+    "contact": "Contact",
+    "status": "Statut",
+    "noMunicipalities": "Pas encore de municipalités",
+    "noMunicipalitiesSub": "Cliquez sur \"Ajouter une municipalité\" pour créer la première.",
+    "deleteMunicipality": "Supprimer la municipalité ?",
+    "createMunicipality": "Créer la municipalité",
+    "updateMunicipality": "Mettre à jour la municipalité",
+    "fetchFailed": "Échec du chargement des municipalités",
+    "municipalityUpdated": "Municipalité mise à jour",
+    "municipalityCreated": "Municipalité créée",
+    "municipalityDeleted": "Municipalité supprimée",
+    "saveFailed": "Échec de l'enregistrement",
+    "deleteFailed": "Échec de la suppression"
+  },
+  "manageHelpRequests": {
+    "title": "Gérer les Demandes d'aide",
+    "subtitle": "Superviser le bénévolat et les dons communautaires.",
+    "titleCol": "Titre",
+    "category": "Catégorie",
+    "verification": "Vérification",
+    "postedBy": "Posté par",
+    "noRequests": "Aucune demande trouvée.",
+    "deleteRequest": "Supprimer la demande d'aide ?",
+    "allCategories": "Toutes les catégories",
+    "volunteering": "Bénévolat",
+    "donation": "Don",
+    "other": "Autre"
+  },
+  "agentDashboard": {
+    "title": "Tableau de bord Agent",
+    "subtitle": "Gérer vos tâches assignées",
+    "assigned": "Assigné",
+    "listView": "Vue liste",
+    "mapView": "Vue carte",
+    "loadingAssignments": "Chargement des tâches...",
+    "allCaughtUp": "Tout est à jour !",
+    "noIssuesAssigned": "Aucun problème ne vous est actuellement assigné.",
+    "issue": "Problème",
+    "status": "Statut",
+    "priority": "Priorité",
+    "reported": "Signalé",
+    "resolve": "Résoudre",
+    "startWork": "Commencer le travail",
+    "working": "En cours",
+    "viewDetails": "Voir les détails",
+    "resolveIssue": "Résoudre le problème",
+    "resolveDescription": "Veuillez fournir une preuve photographique de la résolution. Ceci est requis pour fermer le problème.",
+    "resolutionPhoto": "Photo de résolution",
+    "filesSelected": "{{count}} fichier(s) sélectionné(s)",
+    "uploading": "Téléchargement en cours...",
+    "confirmResolution": "Confirmer la résolution"
+  },
+  "agentReports": {
+    "title": "Rapports mensuels",
+    "subtitle": "Passez en revue l'historique de vos performances",
+    "lifetimeResolved": "Résolus à vie",
+    "avgResolutionTime": "Temps de résolution moyen",
+    "days": "Jours",
+    "currentMonthProgress": "Progrès du mois en cours",
+    "issues": "Problèmes",
+    "reportHistory": "Historique des rapports",
+    "reportPeriod": "Période du rapport",
+    "issuesResolved": "Problèmes résolus",
+    "avgTime": "Temps de résolution moy.",
+    "periodEnd": "Fin de période",
+    "noHistory": "Aucun historique de rapport disponible."
+  },
+  "citizenDashboard": {
+    "personalSummary": "Résumé personnel",
+    "manage": "Gérer",
+    "totalReports": "Total Signalements",
+    "inProgress": "En cours",
+    "resolved": "Résolu",
+    "boostsUsed": "Boosts utilisés",
+    "liveCityMap": "Carte de la ville en direct",
+    "expand": "Agrandir",
+    "reportNewIssue": "Signaler un nouveau problème",
+    "startNewReport": "Commencer un nouveau signalement",
+    "viewMyIssues": "Voir mes problèmes",
+    "seeAllReports": "Voir tous vos signalements",
+    "trackIssue": "Suivre un problème",
+    "findUpdates": "Trouver les mises à jour",
+    "manageAccount": "Gérer le compte",
+    "settingsProfile": "Paramètres & profil",
+    "statusUpdate": "Mise à jour du statut",
+    "issueNowStatus": "Votre problème \"{{title}}\" est maintenant {{status}}",
+    "recently": "Récemment",
+    "welcome": "Bienvenue !",
+    "noReportsYet": "Vous n'avez pas encore signalé de problème.",
+    "justNow": "À l'instant"
+  },
+  "profile": {
+    "personalInfo": "Infos personnelles",
+    "personalInformation": "Informations personnelles",
+    "fullName": "Nom complet",
+    "emailAddress": "Adresse e-mail",
+    "phoneNumber": "Numéro de téléphone",
+    "municipality": "Municipalité",
+    "selectMunicipality": "Sélectionner Municipalité",
+    "changePicture": "Changer la photo",
+    "remove": "Supprimer",
+    "update": "Mettre à jour",
+    "updating": "Mise à jour...",
+    "dangerZone": "Zone de danger",
+    "dangerZoneText": "Une fois votre compte supprimé, il n'y a pas de retour en arrière.",
+    "deleteAccount": "Supprimer le compte",
+    "deleteAccountConfirm": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible."
+  },
+  "communityFeed": {
+    "title": "Aide communautaire",
+    "subtitle": "Connectez-vous avec vos voisins, trouvez de l'aide ou offrez votre soutien.",
+    "requestHelp": "Demander de l'aide",
+    "all": "Tout",
+    "volunteering": "Bénévolat",
+    "donation": "Don",
+    "noRequests": "Aucune demande trouvée",
+    "noRequestsSub": "Commencez par créer une nouvelle demande d'aide.",
+    "newRequest": "Nouvelle demande",
+    "fetchFailed": "Échec du chargement des demandes",
+    "status": {
+      "pending": "En attente",
+      "approved": "Approuvé",
+      "rejected": "Rejeté"
+    }
   },
   "landingPage": {
     "hero": {
-      "titleLine1": "Rendez votre ville",
-      "titleLine2": "Meilleure, Ensemble",
-      "description": "Signalez les problèmes urbains, soutenez les causes communautaires et suivez les changements réels dans votre quartier. Rejoignez le mouvement pour une ville plus propre et plus sûre.",
+      "titleLine1": "Rendre votre ville",
+      "titleLine2": "meilleure, ensemble",
+      "description": "Signalez des problèmes urbains, soutenez des causes communautaires et suivez les changements réels. Rejoignez le mouvement.",
       "ctaReport": "Signaler un problème",
       "ctaMap": "Voir la carte",
       "card1": {
@@ -200,17 +536,17 @@
       "card1": {
         "tag": "Gratuit",
         "title": "Signaler des problèmes",
-        "description": "Vous avez repéré un nid-de-poule, un lampadaire cassé ou un dépôt sauvage ? Signalez-le en quelques secondes avec photo et localisation."
+        "description": "Un nid-de-poule ? Un lampadaire cassé ? Signalez-le en quelques secondes."
       },
       "card2": {
         "tag": "Vérifié",
         "title": "Soutenir vos voisins",
-        "description": "Aidez les familles dans le besoin en faisant un don aux demandes communautaires vérifiées. Chaque contribution fait la différence."
+        "description": "Aidez les familles dans le besoin en donnant aux demandes communautaires vérifiées."
       },
       "card3": {
         "tag": "Dès 5 DH",
         "title": "Booster la visibilité",
-        "description": "Faites ressortir les problèmes urgents. Boostez les signalements pour obtenir une attention municipale plus rapide."
+        "description": "Faites ressortir les problèmes urgents pour attirer l'attention municipale plus rapidement."
       }
     },
     "howItWorks": {
@@ -221,7 +557,7 @@
       "step4": "Problème résolu"
     },
     "stats": {
-      "issues": "Problèmes signalés",
+      "issues": "Signalements",
       "resolution": "Taux de résolution",
       "funded": "Demandes financées",
       "partners": "Partenaires municipaux"
@@ -233,64 +569,5 @@
       "contact": "Contact",
       "rights": "© 2024 FixMyCity. Tous droits réservés."
     }
-  },
-  "header": {
-    "issuesList": "Liste des problèmes",
-    "communityHelp": "Entraide communautaire",
-    "aboutUs": "À propos"
-  },
-  "admin": {
-    "dashboard": "Tableau de bord admin",
-    "allIssues": "Tous les problèmes",
-    "transactions": "Transactions",
-    "users": "Utilisateurs"
-  },
-  "issueDetails": {
-    "back": "Retour",
-    "description": "Description",
-    "deleteIssue": "Supprimer le problème",
-    "boost": "Booster",
-    "anonymous": "Anonyme",
-    "comments": "Commentaires",
-    "noComments": "Aucun commentaire. Soyez le premier à discuter de ce problème.",
-    "addComment": "Ajouter un commentaire...",
-    "posting": "Publication...",
-    "postComment": "Publier",
-    "loginToUpvote": "Veuillez vous connecter pour voter.",
-    "loginToBoost": "Veuillez vous connecter pour booster.",
-    "upvoted": "Vote enregistré !",
-    "failedUpvote": "Échec du vote",
-    "failedLoad": "Échec du chargement des détails",
-    "failedDelete": "Échec de la suppression",
-    "failedComment": "Échec de la publication du commentaire",
-    "commentAdded": "Commentaire ajouté !",
-    "postedOn": "Publié le",
-    "user": "Utilisateur",
-    "selectPhotosToResolve": "Veuillez sélectionner au moins une photo pour marquer comme résolu.",
-    "markedResolved": "Problème marqué comme résolu !",
-    "failedToResolve": "Échec du marquage comme résolu.",
-    "resolvedPictures": "Photos de résolution",
-    "markResolved": "Marquer comme résolu",
-    "uploadProof": "Téléchargez des photos preuvant la résolution.",
-    "resolveIssueBtn": "Résoudre & Télécharger"
-  },
-  "issueCard": {
-    "upvotes": "Votes",
-    "boost": "Booster",
-    "upvote": "Voter",
-    "delete": "Supprimer",
-    "noImage": "Pas d'image",
-    "loginRequired": "Veuillez vous connecter."
-  },
-  "translate": {
-    "translate": "Traduire",
-    "showOriginal": "Texte original",
-    "translating": "Traduction...",
-    "failed": "Échec de la traduction"
-  },
-  "common": {
-    "loading": "Chargement...",
-    "error": "Erreur",
-    "noResults": "Aucun résultat"
   }
 }

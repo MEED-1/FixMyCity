@@ -22,8 +22,13 @@ const AboutUs = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
                 <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
-                    <div className="absolute inset-0 bg-linear-to-r from-primary to-amber-700 opacity-90 flex items-center justify-center">
-                        <span className="text-white text-6xl font-bold">FixMyCity</span>
+                    <img
+                        src="/assets/images/about.png"
+                        alt="Modern City Planning"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-r from-primary/40 to-amber-700/40 opacity-90 flex items-center justify-center">
+                        <span className="text-white text-6xl font-bold drop-shadow-lg">FixMyCity</span>
                     </div>
                 </div>
                 <div>

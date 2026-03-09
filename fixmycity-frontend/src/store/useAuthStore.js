@@ -58,7 +58,9 @@ const useAuthStore = create((set, get) => ({
     try {
       await authService.logout();
     } catch (e) {
-      console.error("Logout error", e);
+      if (e.response?.status !== 401) {
+        console.error("Logout error", e);
+      }
     } finally {
       localStorage.removeItem('token');
       set({ user: null, token: null, isAuthenticated: false });

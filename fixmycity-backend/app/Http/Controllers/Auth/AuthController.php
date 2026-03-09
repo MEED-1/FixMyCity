@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\UrbanIssue;
 use App\Models\CommunityHelpRequest;
 
+
 class AuthController extends Controller
 {
     
@@ -141,19 +142,36 @@ class AuthController extends Controller
 
         if ($request->hasFile('avatar')) {
             if ($user->avatar_url) {
-                $oldPath = str_replace(url('storage') . '/', '', $user->avatar_url);
-                Storage::disk('public')->delete($oldPath);
+                if (str_contains($user->avatar_url, 'cloudinary')) {
+                    if (preg_match('/upload\/(?:v\d+\/)?([^\.]+)/', $user->avatar_url, $matches)) {
+                        try {
+                            cloudinary()->uploadApi()->destroy($matches[1]);
+                        } catch (\Exception $e) {
+                            \Log::error('Cloudinary delete failed: ' . $e->getMessage());
+                        }
+                    }
+                } else {
+                    $oldPath = str_replace(url('storage') . '/', '', $user->avatar_url);
+                    Storage::disk('public')->delete($oldPath);
+                }
             }
 
-            $path = $request->file('avatar')->store('avatars', 'public');
-            $user->avatar_url = url('storage/' . $path);
-            $user->save();
+            try {
+                $result = cloudinary()->uploadApi()->upload($request->file('avatar')->getRealPath(), [
+                    'folder' => 'fixmycity/avatars'
+                ]);
+                $user->avatar_url = $result['secure_url'];
+                $user->save();
 
-            return response()->json([
-                'message' => 'Profile picture updated successfully',
-                'user' => $user,
-                'avatar_url' => $user->avatar_url
-            ]);
+                return response()->json([
+                    'message' => 'Profile picture updated successfully',
+                    'user' => $user,
+                    'avatar_url' => $user->avatar_url
+                ]);
+            } catch (\Exception $e) {
+                \Log::error('Photo upload failed: ' . $e->getMessage());
+                return response()->json(['error' => 'Failed to upload photo'], 500);
+            }
         }
 
         return response()->json(['error' => 'No image provided'], 400);
@@ -165,8 +183,18 @@ class AuthController extends Controller
         $user = auth('api')->user();
 
         if ($user->avatar_url) {
-            $oldPath = str_replace(url('storage') . '/', '', $user->avatar_url);
-            Storage::disk('public')->delete($oldPath);
+            if (str_contains($user->avatar_url, 'cloudinary')) {
+                if (preg_match('/upload\/(?:v\d+\/)?([^\.]+)/', $user->avatar_url, $matches)) {
+                    try {
+                        cloudinary()->uploadApi()->destroy($matches[1]);
+                    } catch (\Exception $e) {
+                        \Log::error('Cloudinary delete failed: ' . $e->getMessage());
+                    }
+                }
+            } else {
+                $oldPath = str_replace(url('storage') . '/', '', $user->avatar_url);
+                Storage::disk('public')->delete($oldPath);
+            }
             
             $user->avatar_url = null;
             $user->save();
@@ -197,8 +225,18 @@ class AuthController extends Controller
         UrbanIssue::where('comments.user_id', $user->id)->pull('comments', ['user_id' => $user->id]);
 
         if ($user->avatar_url) {
-            $oldPath = str_replace(url('storage') . '/', '', $user->avatar_url);
-            Storage::disk('public')->delete($oldPath);
+            if (str_contains($user->avatar_url, 'cloudinary')) {
+                if (preg_match('/upload\/(?:v\d+\/)?([^\.]+)/', $user->avatar_url, $matches)) {
+                    try {
+                        cloudinary()->uploadApi()->destroy($matches[1]);
+                    } catch (\Exception $e) {
+                        \Log::error('Cloudinary delete failed: ' . $e->getMessage());
+                    }
+                }
+            } else {
+                $oldPath = str_replace(url('storage') . '/', '', $user->avatar_url);
+                Storage::disk('public')->delete($oldPath);
+            }
         }
 
         $user->delete();

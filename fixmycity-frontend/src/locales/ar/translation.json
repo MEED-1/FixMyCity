@@ -11,18 +11,13 @@
     "signedInAs": "مسجل الدخول كـ"
   },
   "sidebar": {
-    "dashboard": "لوحة القيادة",
+    "dashboard": "نظرة عامة",
     "myIssues": "بلاغاتي",
     "reportIssue": "الإبلاغ عن مشكلة",
-    "myHelp": "طلبات المساعدة",
-    "myHelpRequests": "طلبات المساعدة",
-    "myDonations": "تبرعاتي",
-    "myBoosts": "تعزيزاتي",
-    "notifications": "الإشعارات",
+    "myHelp": "طلبات المساعدة الخاصة بي",
+    "reports": "التقارير الشهرية",
     "profile": "الملف الشخصي",
-    "browseRequests": "تصفح الطلبات",
-    "communityHelp": "المساعدة المجتمعية",
-    "settings": "الإعدادات",
+    "notifications": "الإشعارات",
     "logout": "تسجيل الخروج"
   },
   "reportIssue": {
@@ -67,6 +62,8 @@
     "allReports": "كل البلاغات",
     "listView": "عرض القائمة",
     "mapView": "عرض الخريطة",
+    "cityMap": "خريطة المدينة المباشرة",
+    "personalSummary": "الملخص الشخصي",
     "stats": {
       "issuesReported": "البلاغات المقدمة",
       "activeRequests": "الطلبات النشطة",
@@ -99,7 +96,24 @@
   "issues": {
     "browseTitle": "تصفح المشاكل الحضرية",
     "browseSubtitle": "اطلع على ما يحدث في مدينتك",
-    "noIssues": "لم يتم العثور على مشاكل تطابق الفلتر."
+    "noIssues": "لم يتم العثور على مشاكل تطابق الفلتر.",
+    "sort": {
+      "latest": "الأحدث أولاً",
+      "upvotes": "الأكثر تصويتاً"
+    },
+    "category": {
+      "all": "جميع الفئات"
+    },
+    "municipality": {
+      "all": "جميع البلديات"
+    },
+    "status": {
+      "reported": "بلاغ مقدم",
+      "approved": "مقبول",
+      "in_progress": "قيد المعالجة",
+      "resolved": "تم الحل",
+      "rejected": "مرفوض"
+    }
   },
   "about": {
     "title": "عن FixMyCity",
@@ -151,12 +165,24 @@
     "description": "الوصف",
     "progress": "تقدم جمع التبرعات",
     "raised": "{{current}} تم جمعها",
+    "raisedShort": "{{amount}} تم جمعها",
     "goal": "الهدف: {{target}}",
+    "goalShort": "الهدف: {{amount}}",
     "location": "الموقع",
     "donateBtn": "تبرع الآن 💖",
     "volunteerBtn": "تطوع للمساعدة",
     "volunteerToast": "مراسلة المتطوعين قادمة قريباً!",
-    "notFound": "الطلب غير موجود"
+    "notFound": "الطلب غير موجود",
+    "confirmDelete": "هل أنت متأكد من حذف طلب المساعدة هذا؟",
+    "deleteSuccess": "تم حذف الطلب بنجاح",
+    "deleteFailed": "فشل حذف الطلب",
+    "volunteer": "تطوع",
+    "donateShort": "تبرع الآن",
+    "status": {
+      "pending": "معلق",
+      "approved": "مقبول",
+      "rejected": "مرفوض"
+    }
   },
   "auth": {
     "or": "أو",
@@ -185,7 +211,10 @@
     "dashboard": "لوحة تحكم المدير",
     "allIssues": "جميع المشاكل",
     "transactions": "المعاملات",
-    "users": "المستخدمون"
+    "users": "المستخدمون",
+    "categories": "الفئات",
+    "municipalities": "البلديات",
+    "helpRequests": "طلبات المساعدة"
   },
   "issueDetails": {
     "back": "رجوع",
@@ -204,13 +233,13 @@
     "failedUpvote": "فشل التصويت",
     "failedLoad": "فشل تحميل التفاصيل",
     "failedDelete": "فشل الحذف",
+    "failedToResolve": "فشل الحل",
     "failedComment": "فشل نشر التعليق",
     "commentAdded": "تمت إضافة التعليق!",
     "postedOn": "نشر في",
     "user": "مستخدم",
     "selectPhotosToResolve": "يرجى تحديد صورة واحدة على الأقل لتحديدها كمحلولة.",
     "markedResolved": "تم تحديد المشكلة كمحلولة!",
-    "failedToResolve": "فشل التحديد كمحلولة.",
     "resolvedPictures": "صور الحل",
     "markResolved": "تحديد كمحلولة",
     "uploadProof": "قم بتحميل صور تثبت حل المشكلة.",
@@ -233,56 +262,304 @@
   "common": {
     "loading": "جاري التحميل...",
     "error": "خطأ",
-    "noResults": "لا توجد نتائج"
+    "noResults": "لا توجد نتائج",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "save": "حفظ",
+    "saving": "جاري الحفظ...",
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "actions": "الإجراءات",
+    "view": "عرض",
+    "edit": "تعديل",
+    "confirm": "تأكيد",
+    "actionCannotBeUndone": "لا يمكن التراجع عن هذا الإجراء.",
+    "noImage": "بدون صورة",
+    "boosted": "تم تعزيزه",
+    "nearby": "بالقرب منك",
+    "unknown": "غير معروف",
+    "roles": {
+      "citizen": "مواطن",
+      "agent": "وكيل",
+      "admin": "مدير"
+    },
+    "status": {
+      "pendingApproval": "في انتظار الموافقة",
+      "approved": "مقبول",
+      "inProgress": "قيد المعالجة",
+      "resolved": "تم الحل",
+      "rejected": "مرفوض"
+    }
+  },
+  "adminDashboard": {
+    "title": "لوحة تحكم المدير",
+    "subtitle": "نظرة عامة وإدارة المنصة",
+    "totalUsers": "إجمالي المستخدمين",
+    "totalIssues": "إجمالي المشاكل",
+    "pendingIssues": "المشاكل المعلقة",
+    "helpRequests": "طلبات المساعدة",
+    "citizensAgents": "مواطنون ووكلاء",
+    "reportsFiled": "البلاغات المقدمة",
+    "awaitingAction": "في انتظار الإجراء",
+    "communityRequests": "طلبات المجتمع",
+    "loadingStats": "جاري تحميل الإحصائيات...",
+    "failedStats": "فشل تحميل إحصائيات المدير"
+  },
+  "manageIssues": {
+    "title": "إدارة المشاكل",
+    "subtitle": "الإشراف على البلاغات والتحكم فيها.",
+    "issue": "المشكلة",
+    "category": "الفئة",
+    "status": "الحالة",
+    "reporter": "المُبلّغ",
+    "noIssues": "لم يتم العثور على مشاكل.",
+    "deleteIssue": "حذف المشكلة؟",
+    "allStatuses": "جميع الحالات",
+    "reported": "تم الإبلاغ",
+    "approved": "مقبول",
+    "inProgress": "قيد المعالجة",
+    "resolved": "تم الحل",
+    "rejected": "مرفوض"
+  },
+  "manageUsers": {
+    "title": "إدارة المستخدمين",
+    "subtitle": "عرض وإدارة الأدوار والتحكم في المستخدمين.",
+    "user": "المستخدم",
+    "email": "البريد الإلكتروني",
+    "role": "الدور",
+    "municipality": "البلدية",
+    "noUsers": "لم يتم العثور على مستخدمين.",
+    "deleteUser": "حذف المستخدم؟",
+    "allRoles": "جميع الأدوار",
+    "citizen": "مواطن",
+    "agent": "وكيل",
+    "admin": "مدير",
+    "assignMunicipality": "تعيين البلدية",
+    "selectMunicipality": "اختر البلدية",
+    "noUsersFoundMatchingFilter": "لا يوجد مستخدمون يطابقون الفلتر.",
+    "roleUpdated": "تم تحديث الدور",
+    "updateRoleFailed": "فشل تحديث الدور",
+    "userDeleted": "تم حذف المستخدم",
+    "deleteUserFailed": "فشل حذف المستخدم",
+    "fetchUsersFailed": "فشل جلب المستخدمين"
+  },
+  "transactions": {
+    "title": "المعاملات",
+    "subtitle": "مراقبة المدفوعات والنشاط المالي.",
+    "date": "التاريخ",
+    "user": "المستخدم",
+    "type": "النوع",
+    "amount": "المبلغ",
+    "status": "الحالة",
+    "noTransactions": "لا توجد معاملات.",
+    "fetchFailed": "فشل جلب المعاملات"
+  },
+  "manageCategories": {
+    "title": "إدارة الفئات",
+    "subtitle": "إنشاء وإدارة فئات المشاكل.",
+    "addCategory": "إضافة فئة",
+    "editCategory": "تعديل الفئة",
+    "newCategory": "فئة جديدة",
+    "name": "الاسم",
+    "type": "النوع",
+    "icon": "الأيقونة (إيموجي أو اسم)",
+    "iconLabel": "الأيقونة (إيموجي أو اسم)",
+    "color": "اللون",
+    "status": "الحالة",
+    "noCategories": "لا توجد فئات بعد",
+    "noCategoriesSub": "انقر على \"إضافة فئة\" لإنشاء أول واحدة.",
+    "deleteCategory": "حذف الفئة؟",
+    "createCategory": "إنشاء الفئة",
+    "updateCategory": "تحديث الفئة",
+    "fetchFailed": "فشل تحميل الفئات",
+    "categoryUpdated": "تم تحديث الفئة",
+    "categoryCreated": "تم إنشاء الفئة",
+    "categoryDeleted": "تم حذف الفئة",
+    "saveFailed": "فشل الحفظ",
+    "deleteFailed": "فشل الحذف"
+  },
+  "manageMunicipalities": {
+    "title": "إدارة البلديات",
+    "subtitle": "إنشاء وإدارة المناطق البلدية.",
+    "addMunicipality": "إضافة بلدية",
+    "editMunicipality": "تعديل البلدية",
+    "newMunicipality": "بلدية جديدة",
+    "name": "الاسم",
+    "code": "الرمز",
+    "region": "المنطقة",
+    "contact": "معلومات الاتصال",
+    "status": "الحالة",
+    "noMunicipalities": "لا توجد بلديات بعد",
+    "noMunicipalitiesSub": "انقر على \"إضافة بلدية\" لإنشاء أول واحدة.",
+    "deleteMunicipality": "حذف البلدية؟",
+    "createMunicipality": "إنشاء البلدية",
+    "updateMunicipality": "تحديث البلدية",
+    "fetchFailed": "فشل تحميل البلديات",
+    "municipalityUpdated": "تم تحديث البلدية",
+    "municipalityCreated": "تم إنشاء البلدية",
+    "municipalityDeleted": "تم حذف البلدية",
+    "saveFailed": "فشل الحفظ",
+    "deleteFailed": "فشل الحذف"
+  },
+  "manageHelpRequests": {
+    "title": "إدارة طلبات المساعدة",
+    "subtitle": "الإشراف على التطوع والتبرعات المجتمعية.",
+    "titleCol": "العنوان",
+    "category": "الفئة",
+    "verification": "التحقق",
+    "postedBy": "نشر بواسطة",
+    "noRequests": "لم يتم العثور على طلبات.",
+    "deleteRequest": "حذف طلب المساعدة؟",
+    "allCategories": "جميع الفئات",
+    "volunteering": "تطوع",
+    "donation": "تبرع",
+    "other": "آخر"
+  },
+  "agentDashboard": {
+    "title": "لوحة تحكم الوكيل",
+    "subtitle": "إدارة المهام المكلف بها",
+    "assigned": "المكلف بها",
+    "listView": "عرض القائمة",
+    "mapView": "عرض الخريطة",
+    "loadingAssignments": "جاري تحميل المهام...",
+    "allCaughtUp": "لا يوجد شيء جديد!",
+    "noIssuesAssigned": "لا توجد مشاكل مكلف بها حالياً.",
+    "issue": "المشكلة",
+    "status": "الحالة",
+    "priority": "الأولوية",
+    "reported": "تم الإبلاغ",
+    "resolve": "حل",
+    "startWork": "بدء العمل",
+    "working": "قيد العمل",
+    "viewDetails": "عرض التفاصيل",
+    "resolveIssue": "حل المشكلة",
+    "resolveDescription": "يرجى تقديم دليل فوتوغرافي على حل المشكلة. هذا مطلوب لإغلاق المشكلة.",
+    "resolutionPhoto": "صورة الحل",
+    "filesSelected": "{{count}} ملف(ات) مختارة",
+    "uploading": "جاري الرفع...",
+    "confirmResolution": "تأكيد الحل"
+  },
+  "agentReports": {
+    "title": "التقارير الشهرية",
+    "subtitle": "مراجعة سجل أدائك",
+    "lifetimeResolved": "إجمالي المشاكل المحلولة",
+    "avgResolutionTime": "متوسط وقت الحل",
+    "days": "أيام",
+    "currentMonthProgress": "تقدم الشهر الحالي",
+    "issues": "مشاكل",
+    "reportHistory": "سجل التقارير",
+    "reportPeriod": "فترة التقرير",
+    "issuesResolved": "المشاكل المحلولة",
+    "avgTime": "متوسط وقت الحل",
+    "periodEnd": "نهاية الفترة",
+    "noHistory": "لا يوجد سجل تقارير متاح بعد."
+  },
+  "citizenDashboard": {
+    "personalSummary": "الملخص الشخصي",
+    "manage": "إدارة",
+    "totalReports": "إجمالي البلاغات",
+    "inProgress": "قيد المعالجة",
+    "resolved": "تم الحل",
+    "boostsUsed": "التعزيزات المستخدمة",
+    "liveCityMap": "خريطة المدينة المباشرة",
+    "expand": "توسيع",
+    "reportNewIssue": "الإبلاغ عن مشكلة جديدة",
+    "startNewReport": "بدء بلاغ جديد",
+    "viewMyIssues": "عرض مشاكلي",
+    "seeAllReports": "عرض جميع بلاغاتك",
+    "trackIssue": "تتبع مشكلة",
+    "findUpdates": "اعثر على آخر التحديثات",
+    "manageAccount": "إدارة الحساب",
+    "settingsProfile": "الإعدادات والملف الشخصي",
+    "statusUpdate": "تحديث الحالة",
+    "issueNowStatus": "مشكلتك \"{{title}}\" أصبحت الآن {{status}}",
+    "recently": "مؤخراً",
+    "welcome": "أهلاً بك!",
+    "noReportsYet": "لم تقم بالإبلاغ عن أي مشاكل بعد.",
+    "justNow": "الآن"
+  },
+  "profile": {
+    "personalInfo": "المعلومات الشخصية",
+    "personalInformation": "المعلومات الشخصية",
+    "fullName": "الاسم الكامل",
+    "emailAddress": "البريد الإلكتروني",
+    "phoneNumber": "رقم الهاتف",
+    "municipality": "البلدية",
+    "selectMunicipality": "اختر البلدية",
+    "changePicture": "تغيير الصورة",
+    "remove": "إزالة",
+    "update": "تحديث",
+    "updating": "جاري التحديث...",
+    "dangerZone": "منطقة الخطر",
+    "dangerZoneText": "بمجرد حذف حسابك، لا يمكن التراجع. يرجى التأكد.",
+    "deleteAccount": "حذف الحساب",
+    "deleteAccountConfirm": "هل أنت متأكد من حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء وسيؤدي إلى حذف جميع مشاكلك وتعليقاتك وبياناتك."
+  },
+  "communityFeed": {
+    "title": "المساعدة المجتمعية",
+    "subtitle": "تواصل مع الجيران، اعثر على المساعدة، أو قدم الدعم.",
+    "requestHelp": "طلب مساعدة",
+    "all": "الكل",
+    "volunteering": "تطوع",
+    "donation": "تبرع",
+    "noRequests": "لم يتم العثور على طلبات",
+    "noRequestsSub": "ابدأ بإنشاء طلب مساعدة جديد.",
+    "newRequest": "طلب جديد",
+    "fetchFailed": "فشل تحميل طلبات المجتمع",
+    "status": {
+      "pending": "معلق",
+      "approved": "مقبول",
+      "rejected": "مرفوض"
+    }
   },
   "landingPage": {
     "hero": {
       "titleLine1": "اجعل مدينتك",
-      "titleLine2": "أفضل، معاً",
-      "description": "أبلغ عن المشاكل الحضرية، ادعم القضايا المجتمعية، وتابع التغيير الحقيقي في حيك. انضم للحركة من أجل مدينة أنظف وأكثر أماناً.",
+      "titleLine2": "أفضل، معًا",
+      "description": "أبلغ عن المشاكل الحضرية، وادعم القضايا المجتمعية، وتابع التغيير الحقيقي في حيك. انضم إلى الحركة من أجل مدينة أنظف وأكثر أمانًا.",
       "ctaReport": "الإبلاغ عن مشكلة",
       "ctaMap": "عرض الخريطة",
       "card1": {
         "title": "تنظيف الحديقة",
-        "subtitle": "مقرر لليوم",
-        "volunteers": "12 متطوعاً",
+        "subtitle": "مقرر اليوم",
+        "volunteers": "12 متطوعًا",
         "distance": "على بعد 2 كم"
       },
       "card2": {
         "title": "خطر على الطريق",
-        "status": "قيد المعالجة"
+        "status": "جاري العمل"
       }
     },
     "features": {
       "title": "ماذا يمكنك أن تفعل؟",
-      "subtitle": "كل ما تحتاجه لتكون مواطناً فاعلاً.",
+      "subtitle": "كل ما تحتاجه لتكون مواطنًا نشطًا.",
       "card1": {
         "tag": "مجاني",
-        "title": "أبلغ عن المشاكل الحضرية",
-        "description": "لاحظت حفرة، أو عمود إنارة مكسور، أو مكب نفايات غير قانوني؟ أبلغ عنه في ثوانٍ مع صورة وموقع."
+        "title": "الإبلاغ عن المشاكل الحضرية",
+        "description": "هل رأيت حفرة، أو مصباح شارع مكسور، أو مكب نفايات غير قانوني؟ أبلغ عنها في ثوانٍ مع إثبات بالصور والموقع."
       },
       "card2": {
-        "tag": "موثق",
-        "title": "ادعم جيرانك",
-        "description": "ساعد العائلات المحتاجة بالتبرع للطلبات المجتمعية الموثقة. كل مساهمة تحدث فرقاً."
+        "tag": "موثوق",
+        "title": "دعم جيرانك",
+        "description": "ساعد العائلات المحتاجة من خلال التبرع لطلبات المجتمع الموثقة. كل مساهمة تصنع فرقًا."
       },
       "card3": {
-        "tag": "من 5 درهم",
-        "title": "عزز الظهور",
-        "description": "اجعل المشاكل العاجلة بارزة. عزز البلاغات للحصول على اهتمام بلدي أسرع."
+        "tag": "ابتداءً من 5 دراهم",
+        "title": "تعزيز الرؤية",
+        "description": "اجعل المشاكل العاجلة تبرز. عزز البلاغات للحصول على اهتمام بلدي أسرع."
       }
     },
     "howItWorks": {
-      "title": "كيف يعمل",
+      "title": "كيف يعمل التطبيق",
       "step1": "إنشاء حساب",
-      "step2": "أبلغ أو اطلب",
-      "step3": "البلدية تستجيب",
-      "step4": "تم حل المشكلة"
+      "step2": "الإبلاغ أو الطلب",
+      "step3": "استجابة البلدية",
+      "step4": "حل المشكلة"
     },
     "stats": {
-      "issues": "مشاكل مبلغ عنها",
+      "issues": "المشاكل المبلغ عنها",
       "resolution": "معدل الحل",
-      "funded": "طلبات ممولة",
+      "funded": "الطلبات الممولة",
       "partners": "شركاء بلديون"
     },
     "footer": {

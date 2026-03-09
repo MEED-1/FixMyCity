@@ -379,7 +379,7 @@ function EditIssue() {
                             {imagePreviews.length > 0 && (
                                 <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                                     {imagePreviews.map((src, index) => (
-                                        <div key={`new-${index}`} className="relative group rounded-xl overflow-hidden aspect-square border-blue-400 border-2">
+                                        <div key={`new-${index}`} className="relative group rounded-xl overflow-hidden aspect-square border-primary border-2">
                                             <img src={src} alt="New Preview" className="w-full h-full object-cover" />
                                             <button
                                                 onClick={() => removeNewPhoto(index)}
